@@ -7,11 +7,11 @@
 本项目使用git进行版本管理，代码托管到github。请访问[git官网](https://git-scm.com/downloads)下载对应操作系统的git客户端。此外，还需要访问[github首页](https://github.com)来注册github账户，以进行代码提交。
 
 ###下载代码
-本项目github地址是[https://github.com/fatzhou/gulp-scaffold](https://github.com/fatzhou/gulp-scaffold),github项目首页是[https://fatzhou.github.io/gulp-scaffold/index.html](https://fatzhou.github.io/gulp-scaffold/index.html).
+本项目github地址是[https://github.com/fatzhou/vivixiaodian](https://github.com/fatzhou/vivixiaodian),github项目首页是[https://fatzhou.github.io/vivixiaodian/index.html](https://fatzhou.github.io/vivixiaodian/index.html).
 
 在git客户端中运行以下命令来下载代码：
 
-	git clone git@github.com:fatzhou/gulp-scaffold.git
+	git clone git@github.com:fatzhou/vivixiaodian.git
 	
 git会在当前目录下创建main-page文件夹，并下载代码到本地。
 
