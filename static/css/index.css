@@ -1,6 +1,6 @@
 @charset "utf-8";
 /* CSS Document */
-@import url("http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css");
+@import url("lib/bootstrap.min.css");
 @import url("lib/reset.css");
 /* CSS Document */
 .navbar-default {
