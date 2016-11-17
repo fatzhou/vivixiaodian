@@ -2,7 +2,7 @@
 module.exports = function (gulp, Plugin) {
     var dist = './dist',
         src = './src',
-        htmlSource = src + '/**/*.html',
+        htmlSource = [src + '/**/*.html', '!'+src+'/static/**/*.html'],
         htmlSourceBase = src + '/html',
         jsSource = src + '/**/*.js',
         jsDist =  dist,
@@ -27,19 +27,33 @@ module.exports = function (gulp, Plugin) {
             .pipe(Plugin.clean());
     });
 
-    gulp.task('html_r', ['js_r', 'sass_r', 'less_r', 'css_r', 'img_r'], function () {
+    // gulp.task('html_r', ['js_r', 'sass_r', 'less_r', 'css_r', 'img_r'], function () {
 
-        return gulp.src([timestamp, htmlSource],{base: htmlSourceBase})
+    //     return gulp.src(timestamp.concat(htmlSource),{base: htmlSourceBase})
+    //         .pipe(Plugin.revCollector({
+    //             replaceReved: true
+    //         }))
+    //         .pipe(Plugin.contentInclude({
+    //             includerReg:/<!\-\-include\s+"([^"]+)"\-\->/g
+    //         }))
+    //         .pipe(Plugin.minifyHTML({
+    //             collapseWhitespace: true
+    //         }))
+    //         .pipe(gulp.dest(dist));
+    // });
+
+    gulp.task('html_static_r', ['js_r', 'sass_r', 'less_r', 'css_r', 'img_r'], function() {
+        return gulp.src([timestamp, src+'/static/html/*.html'], {base: 'src/static'})
             .pipe(Plugin.revCollector({
                 replaceReved: true
             }))
-            .pipe(Plugin.contentInclude({
-                includerReg:/<!\-\-include\s+"([^"]+)"\-\->/g
-            }))
-            .pipe(Plugin.minifyHTML({
-                collapseWhitespace: true
-            }))
-            .pipe(gulp.dest(dist));
+            // .pipe(Plugin.contentInclude({
+            //     includerReg:/<!\-\-include\s+"([^"]+)"\-\->/g
+            // }))
+            // .pipe(Plugin.minifyHTML({
+            //     collapseWhitespace: true
+            // }))
+            .pipe(gulp.dest(dist+'/static/'));
     });
 
     gulp.task('js_r_ignore', function () {
@@ -140,7 +154,8 @@ module.exports = function (gulp, Plugin) {
 
     // 监听任务
     gulp.task('release', ['clean_r'], function () {
-        gulp.start('html_r');
+        // gulp.start('html_r');
+        gulp.start('html_static_r');
     });
 
 };

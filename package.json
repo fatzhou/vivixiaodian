@@ -39,11 +39,12 @@
   },
   "scripts": {
     "start": "gulp",
-    "build": "gulp release"
+    "build": "gulp build-dev",
+    "release": "gulp release"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:fatzhou/gulp-scaffold.git"
+    "url": "git@github.com:fatzhou/vivixiaodian.git"
   },
   "author": "",
   "license": "ISC"

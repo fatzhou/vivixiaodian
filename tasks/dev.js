@@ -3,8 +3,9 @@ module.exports = function (gulp, Plugin) {
     var dist = './dist',
         src = './src',
         port = 7000,
-        htmlSource = src + '/**/*.html',
+        htmlSource = [src + '/**/*.html', '!' + src + '/static/**/*.html'],
         htmlSourceBase = src + '/html',
+        htmlIgnore = src + '/static/html/**/*.html',
         jsSource = src + '/**/*.js',
         jsIgnore = '!' + src + '/**/*.min.js',
         sassSource = src + '/**/*.sass',
@@ -36,7 +37,7 @@ module.exports = function (gulp, Plugin) {
     });
 
     //move html file to /dist
-    gulp.task('html', function () {
+    gulp.task('html', ['htmlIgnoreCopy'], function () {
         // return gulp.src(htmlSource)
         return gulp.src(htmlSource, {base: htmlSourceBase})
             .pipe(Plugin.contentInclude({
@@ -45,6 +46,12 @@ module.exports = function (gulp, Plugin) {
             .pipe(htmlstamp())
             .pipe(gulp.dest(dist));
     });
+
+     //merge js and minify to /dist/js 
+    gulp.task('htmlIgnoreCopy', function () {
+        return gulp.src(htmlIgnore, {base: src + '/static/html/'})
+            .pipe(gulp.dest(dist + '/static/'));
+    });   
 
     //merge js and minify to /dist/js 
     gulp.task('js', ['jsIgnoreCopy'], function () {
@@ -112,6 +119,10 @@ module.exports = function (gulp, Plugin) {
     gulp.task('clean', function () {
         return gulp.src(dist, {read: false})
             .pipe(Plugin.clean());
+    });
+
+    gulp.task('build-dev', ['html', 'js', 'less', 'css', 'img', 'copy'], function() {
+
     });
 
     gulp.task('deploy', function() {     
@@ -186,8 +197,12 @@ module.exports = function (gulp, Plugin) {
         // 监听根目录下所有.html文件
         gulp.watch(htmlSource, ['html']);
 
+        gulp.watch(htmlIgnore, ['htmlIgnoreCopy']);
+
         //watch javaScript files
         gulp.watch(jsSource, ['js']);
+
+        gulp.watch(jsIgnore, ['jsIgnoreCopy']);
 
         //watch sass files
         gulp.watch(sassSource, ['sass']);

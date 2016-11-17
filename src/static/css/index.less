@@ -1,0 +1,309 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(common);
+@import url("widgets/icon");
+@import url("widgets/button");
+
+/*登录*/
+.login {
+  background: #5faffc url(../res/images/headbg.jpg) no-repeat center top;
+  height: 878px;
+}
+
+.login .title {
+  padding-top: 160px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.login .title h2 {
+  font-size: 80px;
+  color: #fff;
+}
+
+.login .title small {
+  font-size: 24px;
+  color: #fff;
+  display: block;
+  margin-top: 20px;
+}
+
+.login .form-inline {
+  width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.login .form-inline .form-group {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  text-align: center;
+  display: block
+}
+
+.login .form-inline .input-group {
+  width: 360px;
+  position: relative;
+  background: rgba(255, 255, 255, 0.23);
+  border-radius: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
+  height: 50px;
+  line-height: 50px;
+}
+
+.login .form-inline .input-group .input-group-addon {
+  position: absolute;
+  left: 25px;
+  top: 9px;
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.login .form-inline .input-group .input-group-addon {
+}
+
+.login .form-inline .input-group .form-control {
+  width: 100%;
+  outline: none;
+  border: none;
+  line-height: 50px;
+  background: none;
+  font-size: 24px;
+  color: #fff;
+  padding-left: 64px;
+  height: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+  box-shadow: none;
+  box-sizing: border-box;
+  -wekbit-box-sizing: border-box;
+}
+
+.login .form-inline .input-group input::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.login .form-inline .btn-wrap .btn {
+  width: 160px;
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 30px;
+}
+
+.login .form-inline .btn-wrap .btn:last-child {
+  margin-right: 0;
+}
+
+.login .form-inline .hint {
+  position: relative
+}
+
+.login .form-inline .hint .forget {
+  color: #fff;
+  font-size: 16px;
+  position: absolute;
+  right: 15px;
+}
+
+.login .form-inline .hint .checkbox {
+  position: absolute;
+  left: 10px;
+}
+
+.login .form-inline .hint .checkbox label span {
+  color: #fff;
+  font-size: 16px;
+  vertical-align: middle;
+  display: inline-block
+}
+
+.login .form-inline .hint .checkbox input[type=radio] {
+  visibility: hidden
+}
+
+.login .form-inline .hint .checkbox .ico-check {
+  border: 2px solid #fff;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 10px;
+  position: relative
+}
+
+.login .form-inline .hint .checkbox input:checked + i:before {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 100%;
+  width: 10px;
+  height: 10px;
+  display: block;
+  left: 3px;
+  top: 2.5px;
+}
+
+/*wrap*/
+.wrap {
+  background: #fff;
+  margin-top: -120px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  margin-bottom: 100px;
+}
+
+.wrap .product h2 {
+  text-align: center;
+  font-size: 40px;
+  color: #000;
+  padding-top: 50px;
+  padding-bottom: 40px;
+}
+
+.wrap .product .thumbnail {
+  border: none;
+}
+
+.wrap .product .thumbnail h3 {
+  text-align: center;
+  font-size: 24px;
+  color: #000;
+}
+
+.wrap .product .thumbnail .hint {
+  text-align: center;
+  color: #b8b8b8;
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+
+.wrap .product .thumbnail a {
+  position: relative;
+  overflow: hidden;
+  display: block;
+  width: 334px;
+  height: 594px;
+}
+
+.wrap .product .thumbnail .pro-detail:hover:after {
+  content: "";
+  width: 334px;
+  height: 154px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  z-index: 100;
+  background: url(../res/images/shadow.png) no-repeat center bottom;
+}
+
+/*subtitle*/
+.subtitle {
+  padding: 40px 0;
+  background: url(../res/images/subtitle.jpg) no-repeat center center;
+  widht: 100%;
+  color: #fff;
+  text-align: center
+}
+
+.subtitle h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.subtitle p {
+  font-size: 17px;
+  color: #fff;
+}
+
+/*anli*/
+.anli-wrap {
+  margin-top: 0;
+  box-shadow: none;
+  position: relative;
+  ul li {
+    float: left;
+    display: inline-block;
+    margin-left:10px;
+    margin-right:10px;
+  }
+  .handle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .handle-inner {
+      width: 1110px;
+      height: 155px;
+      margin: 242px auto 0;
+      position: relative;
+      a {
+        width: 77px;
+        height: 155px;
+        border-top-right-radius: 155px;
+        border-bottom-right-radius: 155px;
+        background: rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        display: block;
+        text-align: center;
+        padding-top: 50px;
+
+        &.prev {
+          left: 0;
+          padding-left: 15px;
+        }
+        &.next {
+          right: 15px;
+          padding-left: 30px;
+          border-top-right-radius: 0;
+          border-bottom-right-radius:0;
+          border-top-left-radius: 155px;
+          border-bottom-left-radius: 155px;
+        }
+      }
+    }
+
+  }
+}
+
+.anli-wrap h2 small {
+  font-size: 17px;
+  display: block;
+  margin-top: 20px;
+}
+
+.anli-wrap .thumbnail img {
+
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.anli-wrap .thumbnail .caption a {
+  position: relative;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+.anli-wrap .thumbnail .title {
+  width: 100%;
+  left: 0;
+  position: absolute;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.anli-wrap .thumbnail a img {
+  width: 100%;
+}
+
+.anli-wrap .thumbnail .title h3 {
+  text-align-last: none;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  text-align: center;
+  font-size: 20px;
+  color: #fff;
+}
