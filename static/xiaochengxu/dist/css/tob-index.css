@@ -1,0 +1,66 @@
+.tobshopcenter {
+  background: #eee;
+}
+.tobshopcenter .today-data {
+  background: #fff;
+}
+.tobshopcenter .today-data h2 {
+  height: 32px;
+  line-height: 32px;
+  position: relative;
+  padding-left: 15px;
+}
+.tobshopcenter .today-data h2 a {
+  position: absolute;
+  right: 15px;
+  top: 0;
+  color: #888;
+}
+.tobshopcenter .today-data .weui-grids .weui-grid {
+  text-align: center;
+}
+.tobshopcenter .today-data .weui-grids .data-hint {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tobshopcenter .today-data .weui-grids .data-hint .weui-grid__icon {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+}
+.tobshopcenter .today-data .weui-grids .data-hint .weui-grid__label {
+  margin: 0 0 0 5px;
+  float: left;
+  display: inline-block;
+  font-size: 12px;
+  vertical-align: middle;
+}
+.tobshopcenter .today-data .weui-grids .data-cont {
+  font-size: 30px;
+  color: #000;
+}
+/*��������*/
+footer {
+  text-align: center;
+  position: relative;
+  margin-top: -30px;
+}
+footer img {
+  height: 20px;
+}
+.wrap {
+  min-height: 100%;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+.login .weui-cells__title {
+  margin-top: 2.77em;
+  margin-bottom: 1.3em;
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+}

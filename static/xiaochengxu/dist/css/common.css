@@ -1,0 +1,28 @@
+@import url("lib/reset.css");
+@import url("lib/font/iconfont.css");
+@import url("https://res.wx.qq.com/open/libs/weui/1.1.0/weui.min.css");
+.ico-add {
+  background: url(../res/img/icon_nav_layout.png) no-repeat 0 0;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-size: cover;
+}
+.ico-reduce {
+  background: url(../res/img/icon_nav_layout.png) no-repeat 0 0;
+  width: 24px;
+  height: 24px;
+  display: inline-block;
+  background-size: cover;
+}
+footer {
+  background: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+html,
+body,
+.container {
+  height: 100%;
+}
