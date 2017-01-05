@@ -1,0 +1,124 @@
+.tobshopcenter {
+  background: #f6f6f6;
+}
+.tobshopcenter .today-data {
+  margin-bottom: 30px;
+}
+.tobshopcenter .today-data .weui-navbar {
+  position: relative;
+  background: none;
+}
+.tobshopcenter .today-data .weui-navbar:after {
+  display: none;
+}
+.tobshopcenter .today-data .weui-navbar .weui-navbar__item {
+  background: none;
+}
+.tobshopcenter .today-data .weui-navbar .weui-navbar__item a {
+  color: #b1b1b1;
+  font-size: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #f6f6f6;
+}
+.tobshopcenter .today-data .weui-navbar .weui-navbar__item:after {
+  display: none;
+}
+.tobshopcenter .today-data .weui-navbar .weui-navbar__item.weui-bar__item_on a {
+  color: #fa7e50;
+  border-bottom: 2px solid #fa7e50;
+}
+.tobshopcenter .today-data .weui-grids {
+  background: #fff;
+  overflow: inherit;
+}
+.tobshopcenter .today-data .weui-grids .grids-tips {
+  position: absolute;
+  top: 100px;
+  left: 0;
+  width: 100%;
+}
+.tobshopcenter .today-data .weui-grids .grids-tips:after {
+  content: "";
+  position: absolute;
+  top: -12px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-bottom-color: #fa7e50;
+  left: 16.5%;
+}
+.tobshopcenter .today-data .weui-grids .grids-tips .grids-tips-cont {
+  background: #fa7e50;
+  height: 36px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 13px;
+  color: #fff;
+}
+.tobshopcenter .today-data .weui-grids .weui-grid {
+  text-align: center;
+  position: relative;
+}
+.tobshopcenter .today-data .weui-grids .data-hint {
+  display: inline-block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.tobshopcenter .today-data .weui-grids .data-hint .weui-grid__icon {
+  width: 12px;
+  height: 12px;
+  margin: 3px 0 0;
+  float: left;
+  display: inline-block;
+}
+.tobshopcenter .today-data .weui-grids .data-hint .weui-grid__label {
+  margin: 0 0 0 5px;
+  float: left;
+  display: inline-block;
+  font-size: 12px;
+  vertical-align: middle;
+  color: #545454;
+}
+.tobshopcenter .today-data .weui-grids .data-cont {
+  font-size: 30px;
+  color: #000;
+}
+.tobshopcenter .xiaopu-container {
+  background: #fff;
+}
+.tobshopcenter .xiaopu-container .weui-cells:after {
+  display: none;
+}
+.tobshopcenter .xiaopu-container .weui-cells .weui-cell__hd {
+  margin-right: 10px;
+}
+.tobshopcenter .xiaopu-container .weui-cells h3 {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+.tobshopcenter .xiaopu-container .weui-cells p {
+  font-size: 13px;
+  color: #666;
+}
+/*��������*/
+footer {
+  text-align: center;
+  position: relative;
+  margin-top: -30px;
+  background: none;
+}
+footer img {
+  height: 13px;
+}
+.wrap {
+  min-height: 100%;
+  padding-bottom: 40px;
+  box-sizing: border-box;
+}
+.login .weui-cells__title {
+  margin-top: 2.77em;
+  margin-bottom: 1.3em;
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+}
