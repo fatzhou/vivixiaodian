@@ -30,7 +30,7 @@
         <!--简介-->
         <view class="weui-cells__title">{{shop.name}}  {{shop.info}}</view>
         <view class="weui-cells">
-            <view class="weui-cell weui-cell_access">
+            <view class="weui-cell weui-cell_access" bindtap="bindNavigation">
                 <view class="weui-cell__bd">
                     <view><text>地址</text>
                         <text class="small">{{shop.address}}</text>
@@ -38,7 +38,7 @@
                 </view>
                 <view class="weui-cell__ft"><i class="weui-icon-success"></i><text>导航</text></view>
             </view>
-            <view class="weui-cell weui-cell_access">
+            <view class="weui-cell weui-cell_access" data-phonenum="{{shop.phone}}" bindtap="tapPhoneCall">
                 <view class="weui-cell__bd">
                     <view><text>电话</text>
                      <text class="small">{{shop.phone}}</text>

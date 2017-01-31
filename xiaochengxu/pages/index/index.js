@@ -12,6 +12,8 @@ Page({
     shop: {},
     isShowItemInfo: false,
     showItem: {},
+    showWareIndex: 0,
+    showItemIndex: 0,
     totalPrice: 0
   },
   //事件处理函数
@@ -45,11 +47,23 @@ Page({
   tapOrderItem: function(event) {
     console.log(event)
     console.log(event.currentTarget.dataset)
-    event.currentTarget.dataset.item.orderNum += event.currentTarget.dataset.step
-    if (event.currentTarget.dataset.item.orderNum >= 0) {
+    var wareIndex = event.currentTarget.dataset.currenttype
+    var itemIndex = event.currentTarget.dataset.itemindex
+    console.log(wareIndex)
+    console.log(itemIndex)
+    var item = this.data.shop.wares[wareIndex].items[itemIndex]
+    item.orderNum += event.currentTarget.dataset.step
+    if (item.orderNum >= 0) {
       this.data.totalPrice += event.currentTarget.dataset.step * event.currentTarget.dataset.item.price
       this.setData({
-        totalPrice: this.data.totalPrice
+        totalPrice: this.data.totalPrice,
+        shop: this.data.shop,
+        showItem: item
+      })
+    } else {
+      item.orderNum = 0
+      this.setData({
+        shop: this.data.shop
       })
     }
   },
@@ -58,6 +72,8 @@ Page({
     console.log(event)
     this.setData({
       showItem: event.currentTarget.dataset.item,
+      showWareIndex: event.currentTarget.dataset.wareindex,
+      showItemIndex: event.currentTarget.dataset.itemindex,
       isShowItemInfo: true
     })
   },

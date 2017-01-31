@@ -2,7 +2,8 @@
   "pages":[
     "pages/index/index",
     "pages/proview/index",
-    "pages/shopcenter/index"
+    "pages/shopcenter/index",
+    "pages/map/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

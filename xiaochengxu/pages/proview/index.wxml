@@ -148,7 +148,7 @@
                     <icon class="weui-icon-download weui-tabbar__icon"/>
                 </view>
 
-                <text class="weui-tabbar__label">小铺中心</text>
+                <text class="weui-tabbar__label">小铺信息</text>
             </navigator>
         </view>
     </view>
