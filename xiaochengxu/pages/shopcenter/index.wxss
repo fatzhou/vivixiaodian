@@ -107,9 +107,11 @@
   display: block;
 }
 .shopcenter .weui-cells .weui-cell__ft {
-  font-size: 14px;
-  color: #999;
+      font-size: 14px;
+    color: #808080;
+    width: 60px;
 }
 .shopcenter .weui-cells .weui-cell__ft i {
-  color: #ccc;
+      color: #999;
+    margin-right: 5px;
 }

@@ -88,9 +88,12 @@
 .shop-wrap .shop-layer .weui-panel__bd .weui-media-box .weui-media-box__bd .weui-media-box__info .price-oper text {
   display: inline-block;
   color: #f97a4d;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 /*购物车*/
+
 .shopcar-bar {
   background: #fff;
   position: fixed;
@@ -100,9 +103,40 @@
 .shopcar-bar .weui-cell {
   padding: 0;
 }
-.shopcar-bar .weui-cell .weui-cell__bd view {
-  font-size: 16px;
+.shopcar-bar .weui-cell .weui-cell__hd {
+  margin: 0 30px 0 15px;
+  position: relative;
   text-align: center;
+}
+.shopcar-bar .weui-cell .weui-cell__hd .weui-badge {
+  position: absolute;
+  top: -0.4em;
+  right: -0.4em;
+}
+.shopcar-bar .weui-cell .weui-cell__hd h3 {
+  font-size: 12px;
+}
+.shopcar-bar .weui-cell .weui-cell__hd img {
+  width: 30px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5px;
+}
+.shopcar-bar .weui-cell .weui-cell__bd View {
+  font-size: 16px;
+  color: #f97a4d;
+  padding-left: 15px;
+}
+.shopcar-bar .weui-cell .weui-cell__bd view i {
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  border: 1px solid #f97a4d;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 10px;
 }
 .shopcar-bar .weui-cell .weui-cell__ft .weui-btn {
   height: 52px;
@@ -111,6 +145,7 @@
   width: 100px;
   font-size: 16px;
 }
+
 .pro-view {
   background: none;
   overflow: inherit;
@@ -244,7 +279,8 @@
 .product-view .pro-view .weui-dialog__ft .weui-media-box .price-oper text {
    display: inline-block;
   float: left;
-            line-height: 32px;
+            line-height: 32px;margin-left: 5px;
+    margin-right: 5px;
 }
 .product-view .pro-view .weui-dialog__ft .weui-media-box .price-oper navigator icon {
   color: #f97a4d;
