@@ -106,7 +106,7 @@
         </view>
     </view>
     <!--footer-->
-     <view class="footer">
+     <!--<view class="footer">
         <view class="weui-tabbar">
 
             <navigator url="#" class="weui-tabbar__item weui-bar__item_on">
@@ -125,7 +125,7 @@
                 <text class="weui-tabbar__label">小铺信息</text>
             </navigator>
         </view>
-    </view>
+    </view>-->
       <!--footer end-->
       <block wx-if="{{isShowItemInfo}}">
         <template is="itemTips" data="{{showItem , showWareIndex, showItemIndex}}"/>
