@@ -93,7 +93,6 @@
 }
 
 /*购物车*/
-
 .shopcar-bar {
   background: #fff;
   position: fixed;
@@ -109,34 +108,23 @@
   text-align: center;
 }
 .shopcar-bar .weui-cell .weui-cell__hd .weui-badge {
+  background: #f97a4d;
   position: absolute;
-  top: -0.4em;
-  right: -0.4em;
+  top: auto;
+  right: -5px;
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  bottom: 5px;
 }
-.shopcar-bar .weui-cell .weui-cell__hd h3 {
-  font-size: 12px;
-}
-.shopcar-bar .weui-cell .weui-cell__hd img {
-  width: 30px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 5px;
-}
-.shopcar-bar .weui-cell .weui-cell__bd View {
-  font-size: 16px;
-  color: #f97a4d;
-  padding-left: 15px;
-}
-.shopcar-bar .weui-cell .weui-cell__bd view i {
-  width: 30px;
-  height: 30px;
-  text-align: center;
-  line-height: 30px;
-  border: 1px solid #f97a4d;
-  border-radius: 50%;
+.shopcar-bar .weui-cell .weui-cell__hd i {
   display: inline-block;
-  margin-right: 10px;
+  color: #f97a4d;
+  font-size: 30px;
+}
+.shopcar-bar .weui-cell .weui-cell__bd view {
+  font-size: 20px;
+  color: #f97a4d;
 }
 .shopcar-bar .weui-cell .weui-cell__ft .weui-btn {
   height: 52px;

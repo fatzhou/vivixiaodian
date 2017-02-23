@@ -97,11 +97,14 @@
     <!--购物车-->
     <view class="weui-cells shopcar-bar">
         <view class="weui-cell">
+        <view class="weui-cell__hd">
+         <i class="iconfont-dasan-15"></i><span class="weui-badge">8</span>
+        </view>
             <view class="weui-cell__bd">
-                <view><i class="iconfont-dasan-15"></i>¥{{totalPrice}}</view>
+                <view>¥{{totalPrice}}</view>
             </view>
             <view class="weui-cell__ft">
-                <navigator href="javascript:;" class="weui-btn weui-btn_primary">立即支付</navigator>
+                <navigator href="#" url="" bindtap="tapConfirmOrder" class="weui-btn weui-btn_primary">下单</navigator>
             </view>
         </view>
     </view>

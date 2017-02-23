@@ -1,9 +1,11 @@
 {
   "pages":[
+    "pages/guanzhu/index",
     "pages/index/index",
     "pages/proview/index",
     "pages/shopcenter/index",
-    "pages/map/index"
+    "pages/map/index",
+    "pages/dingdan/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

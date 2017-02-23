@@ -1,0 +1,24 @@
+<view class="container guanzhu-wrap">
+    <view class="wrap">
+        <view class="weui-panel weui-panel_access">
+            <view class="weui-panel__bd">
+                <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                    <view class="weui-media-box__hd">
+                     <image class="weui-media-box__thumb" src="../res/pic/shopcenter-ban1.jpg"></image>
+                    </view>
+                    <view class="weui-media-box__bd">
+                        <view class="weui-media-box__title">唐娜点心铺</view>
+
+                        <view class="weui-media-box__desc"><navigator href="#">13812345678</navigator> </view>
+
+                        <view class="weui-media-box__info">
+                            <navigator href="javascript:;" bindtap="tapEnterShop" class="weui-btn weui-btn_plain-primary">去看看</navigator>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+
+    </view>
+</view>

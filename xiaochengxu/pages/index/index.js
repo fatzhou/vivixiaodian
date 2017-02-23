@@ -84,6 +84,12 @@ Page({
     })
   },
 
+  tapConfirmOrder: function(event) {
+    wx.navigateTo({
+      url: '../dingdan/index'
+    })
+  },
+
   onLoad: function () {
     console.log('onLoad')
     var that = this
