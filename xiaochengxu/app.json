@@ -5,22 +5,13 @@
     "pages/proview/index",
     "pages/shopcenter/index",
     "pages/map/index",
-    "pages/dingdan/index"
+    "pages/dingdan/index",
+    "pages/ordercomplete/index"
   ],
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
-  },
-  "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    },
-    {
-      "pagePath": "pages/shopcenter/index",
-      "text": "小铺信息"
-    }]
   }
 }

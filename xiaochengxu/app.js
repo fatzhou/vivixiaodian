@@ -28,6 +28,45 @@ App({
 
     this.globalData.currentIndex = 0;
     this.globalData.currentShop = this.globalData.shops.shopList[0]
+
+    var that = this
+    wx.login({
+      success: function (res) {
+        console.log("get code!!!")
+        console.log(res.code)
+        that.getOpenID(res.code)
+      }
+    })
+  },
+
+  getOpenID: function (code) {
+    var that = this
+    wx.request({
+      url: 'https://www.ingcloud.net/api/mp/keyxcx',
+      data: {
+        code: code
+      },
+      method: 'GET', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function(res){
+        // success
+        console.log("I get it!!!")
+        console.log(res)
+        var result = JSON.parse(res.data)
+        that.globalData.userOpenID = result.openid
+        that.globalData.session_key = result.session_key
+        console.log(that.globalData.userOpenID)
+        console.log(that.globalData.session_key)
+      },
+      fail: function() {
+        // fail
+        console.log("I fail!!!")
+      },
+      complete: function() {
+        // complete
+      }
+    })
+    return true
   },
 
   getUserInfo:function(cb){
@@ -37,10 +76,10 @@ App({
     }else{
       //调用登录接口
       wx.login({
-        success: function () {
+        success: function (res) {
           wx.getUserInfo({
-            success: function (res) {
-              that.globalData.userInfo = res.userInfo
+            success: function (res1) {
+              that.globalData.userInfo = res1.userInfo
               typeof cb == "function" && cb(that.globalData.userInfo)
             }
           })
@@ -50,6 +89,13 @@ App({
   },
 
   globalData:{
+    userOpenID: null,
+    userToken: null,
+
+    currentShopOpenID: "ooJb5wGwI_Yw55JoCygRmQJGYR64",
+    currentShopID: "7086b7f20b80e980fd519770c98629125fe3641b",
+    lastShopOpenID: "",
+    lasrShopID: "",
     userInfo:null,
     jsonData: '{"shopList":[{"name":"我的小铺", \
                              "info":"货真价实,童叟无欺", \
@@ -79,6 +125,9 @@ App({
                 }',
                 shops:null,
                 currentShopIndex:0,
-                currentShop:null
+                currentShop:null,
+                currentWareList:null,
+                currentOrder:{},
+                hasLoadAllData:false
   }
 })

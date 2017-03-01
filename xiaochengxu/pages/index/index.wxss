@@ -96,7 +96,7 @@
 .shopcar-bar {
   background: #fff;
   position: fixed;
-  bottom: 0;
+  bottom: 52px;
   width: 100%;
 }
 .shopcar-bar .weui-cell {

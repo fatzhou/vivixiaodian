@@ -7,7 +7,7 @@ Page({
 
   tapEnterShop: function() {
     console.log('go navigation')
-    wx.switchTab({
+    wx.navigateTo({
       url: '../index/index',
       // success: function (e) {  
       //   var page = getCurrentPages().pop();  

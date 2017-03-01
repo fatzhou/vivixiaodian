@@ -48,4 +48,25 @@
             </view>
         </view>
     </view>
+    <!--footer-->
+    <view class="footer">
+        <view class="weui-tabbar">
+
+            <navigator url="#" bindtap="switchHomePage" class="weui-tabbar__item ">
+                <view>
+                <icon class=" weui-tabbar__icon iconfont iconfont-dasan-28"/>
+                </view>
+
+                <text class="weui-tabbar__label">首页</text>
+           </navigator>
+        
+            <navigator url="url" class="weui-tabbar__item weui-bar__item_on">
+                    <view>
+                       <icon class=" weui-tabbar__icon iconfont iconfont-dasan-30"/>
+                    </view>
+
+                <text class="weui-tabbar__label">小铺中心</text>
+          </navigator>
+        </view>
+    </view>
 </view>

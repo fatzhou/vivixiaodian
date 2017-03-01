@@ -27,6 +27,12 @@ Page({
     })
   },
 
+  switchHomePage: function(event) {
+    wx.redirectTo({
+      url: '../index/index'
+    })
+  },
+
   onLoad: function () {
     console.log('onLoad')
     // var that = this
