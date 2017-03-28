@@ -114,7 +114,7 @@ Page({
     var that = this
     //获取店铺商品列表
     wx.request({
-      url: 'https://www.ingcloud.net/api/shop/prodlist',
+      url: app.globalData.serverHost + '/api/shop/prodlist',
       data: {openid : app.globalData.currentShopOpenID,
              shopid : app.globalData.currentShopID
             },
@@ -161,28 +161,37 @@ Page({
     })
   },
 
-  onLoad: function () {
+  onLoad: function (info) {
     console.log('onLoad')
+    console.log(info)
     var that = this
-    //调用应用实例的方法获取全局数据
-    app.getUserInfo(function(userInfo){
-      //更新数据
-      that.setData({
-        userInfo:userInfo
-      })
-    })
+    if (info) {
+      if (info.shopid) {
+        app.globalData.currentShopID = info.shopid
+      }
+
+      if (info.shopopenid) {
+        app.globalData.currentShopOpenID = info.shopopenid
+      }
+
+      console.log('currentShopID = ')
+      console.log(app.globalData.currentShopID)
+    }
 
 //获取店铺商品分类
   if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
       app.globalData.lastShopID != app.globalData.currentShopID ||
       !app.globalData.hasLoadAllData) {
 
+        console.log(app.globalData.userOpenID)
+        console.log(app.globalData.session_key)
+        console.log(app.globalData.currentShopID)
         //同步关注店铺
         wx.request({
-          url: 'https://www.wxpuu.com/api/user/attent',
+          url: app.globalData.serverHost + '/api/user/attent',
           data: {
             openid: app.globalData.userOpenID,
-            token: app.globalData.userToken,
+            token: app.globalData.session_key,
             shopid: app.globalData.currentShopID
           },
           method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
@@ -204,7 +213,7 @@ Page({
         app.globalData.hasLoadAllData = false;
         //获取商品分类
         wx.request({
-        url: 'https://www.wxpuu.com/api/shop/classquery',
+        url: app.globalData.serverHost + '/api/shop/classquery',
         data: {openid : app.globalData.currentShopOpenID,
               shopid : app.globalData.currentShopID
               },

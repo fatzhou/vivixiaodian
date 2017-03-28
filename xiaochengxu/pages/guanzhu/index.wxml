@@ -16,6 +16,11 @@
                         <view class="weui-media-box__info">
                             <view bindtap="tapEnterShop" class="weui-btn weui-btn_plain-primary">去看看</view>
                         </view>
+
+                        <view class="weui-media-box__info">
+                            <view bindtap="tapCheckOrderList" class="weui-btn weui-btn_plain-primary">我的订单</view>
+                        </view>
+
                     </view>
                 </view>
             </view>

@@ -6,7 +6,8 @@
     "pages/shopcenter/index",
     "pages/map/index",
     "pages/dingdan/index",
-    "pages/ordercomplete/index"
+    "pages/ordercomplete/index",
+    "pages/orderList/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

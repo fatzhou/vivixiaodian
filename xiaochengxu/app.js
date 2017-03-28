@@ -1,3 +1,7 @@
+var WatchJS = require("/utils/watch.js")
+var watch = WatchJS.watch;
+var unwatch = WatchJS.unwatch;
+var callWatchers = WatchJS.callWatchers;
 //app.js
 App({
   onLaunch: function () {
@@ -37,12 +41,19 @@ App({
         that.getOpenID(res.code)
       }
     })
+
+    watch(this.globalData, "userOpenID", function(){
+      console.log("userOpenID changed!");
+      console.log(that.globalData.userOpenID);
+      that.registerUser();
+    });
+
   },
 
   getOpenID: function (code) {
     var that = this
     wx.request({
-      url: 'https://www.ingcloud.net/api/mp/keyxcx',
+      url: that.globalData.serverHost + '/api/mp/keyxcx',
       data: {
         code: code
       },
@@ -69,6 +80,33 @@ App({
     return true
   },
 
+  registerUser: function () {
+    var that = this
+    wx.request({
+      url: that.globalData.serverHost + '/api/user/regist',
+      data: {
+        openid : that.globalData.userOpenID,
+        token : that.globalData.session_key
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function(res){
+        // success
+        console.log("regist I get it!!!")
+        console.log(res)
+        that.globalData.hasRegistered = true
+      },
+      fail: function(res) {
+        // fail
+        console.log("I fail!!!")
+        console.log(res)
+      },
+      complete: function() {
+        // complete
+      }
+    })
+  },
+
   getUserInfo:function(cb){
     var that = this
     if(this.globalData.userInfo){
@@ -89,9 +127,10 @@ App({
   },
 
   globalData:{
+    serverHost: "https://www.wxpuu.com",//"https://www.ingcloud.net",https://www.wxpuu.com,
     userOpenID: null,
-    userToken: null,
-
+    session_key: null,
+    
     currentShopOpenID: "ooJb5wGwI_Yw55JoCygRmQJGYR64",
     currentShopID: "7086b7f20b80e980fd519770c98629125fe3641b",
     lastShopOpenID: "",
@@ -128,6 +167,7 @@ App({
                 currentShop:null,
                 currentWareList:null,
                 currentOrder:{},
-                hasLoadAllData:false
+                hasLoadAllData:false,
+                hasRegistered:false
   }
 })

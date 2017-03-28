@@ -14,7 +14,7 @@ Page({
       prodlist.push(product)
     }
     wx.request({
-      url: 'https://www.ingcloud.net/api/user/order',
+      url: app.globalData.serverHost + '/api/user/order',
       data: {
         openid: app.globalData.userOpenID,
         token: app.globalData.userToken,
