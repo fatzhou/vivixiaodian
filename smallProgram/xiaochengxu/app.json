@@ -1,5 +1,7 @@
 {
   "pages":[
+    "pages/itemList/itemList",  
+    "pages/home/home",  
     "pages/guanzhu/index",  
     "pages/index/index",
     "pages/proview/index",
