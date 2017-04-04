@@ -1,0 +1,51 @@
+/*确认订单*/
+.dingdan-wrap .wrap {
+  min-height: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  padding-bottom: 60px;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__bd {
+  padding: 0 ;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item {
+  position: relative;
+  font-size: 16px;
+  padding: 10px 15px;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item .weui-form-preview__value small {
+  display: block;
+  font-size: 12px;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item:before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 0;
+  transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+  left: 15px;
+}
+.dingdan-wrap .total-price {
+  text-align: right;
+}
+.dingdan-wrap .total-price view {
+  margin-left: 10px;
+  color: #000;
+  font-size: 20px;display: inline-block
+}
+.dingdan-wrap .footer {
+  background: #F3F3F3;
+}
+.dingdan-wrap .footer .copyright {
+  text-align: center;
+  margin-top: 15px;
+}
+.dingdan-wrap .footer .copyright image {
+  height: 13px;
+}

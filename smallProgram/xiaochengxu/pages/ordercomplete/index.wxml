@@ -1,0 +1,11 @@
+<view>
+    成功下单!
+</view>
+
+<view>
+    订单号:{{orderno}}
+</view>
+
+<view>
+    总价:{{totalprice}}
+</view>

@@ -1,0 +1,72 @@
+<view class="container shopcenter">
+    <view class="wrap">
+        <!--banner-->
+        <view class="slick-initialized slick-slider">
+            <view class="slick-list">
+                <view class="slick-track">
+                    <view data-index="-1" class="slick-slide slick-active">
+                        <image src="../res/pic/shopcenter-ban1.jpg"></image>
+                    </view>
+                    <view data-index="0" class="slick-slide"><image src="../res/pic/shopcenter-ban1.jpg"></image></view>
+                    <view data-index="0" class="slick-slide"><image src="../res/pic/shopcenter-ban1.jpg"></image></view>
+
+                </view>
+            </view>
+            <ul class="slick-dots" style="display: block;">
+                <li class="">
+                    <button>1</button>
+                </li>
+                <li class="">
+                    <button>2</button>
+                </li>
+                <li class="">
+                    <button>3</button>
+                </li>
+                <li class="slick-active">
+                    <button>4</button>
+                </li>
+            </ul>
+        </view>
+        <!--简介-->
+        <view class="weui-cells__title">{{shop.name}}  {{shop.info}}</view>
+        <view class="weui-cells">
+            <view class="weui-cell weui-cell_access" bindtap="bindNavigation">
+                <view class="weui-cell__bd">
+                    <view><text>地址</text>
+                        <text class="small">{{shop.address}}</text>
+                    </view>
+                </view>
+                <view class="weui-cell__ft"><i class="iconfont-dasan-13"></i><text>导航</text></view>
+            </view>
+            <view class="weui-cell weui-cell_access" data-phonenum="{{shop.phone}}" bindtap="tapPhoneCall">
+                <view class="weui-cell__bd">
+                    <view><text>电话</text>
+                     <text class="small">{{shop.phone}}</text>
+                     </view>
+                </view>
+                <view class="weui-cell__ft"><i class="iconfont-dasan-16"></i><text>拨打</text></view>
+            </view>
+        </view>
+    </view>
+    <!--footer-->
+    <view class="footer">
+        <view class="weui-tabbar">
+
+            <navigator url="#" bindtap="switchHomePage" class="weui-tabbar__item ">
+                <view>
+                <icon class=" weui-tabbar__icon iconfont iconfont-dasan-28"/>
+                </view>
+
+                <text class="weui-tabbar__label">首页</text>
+           </navigator>
+        
+            <navigator url="url" class="weui-tabbar__item weui-bar__item_on">
+                    <view>
+                       <icon class=" weui-tabbar__icon iconfont iconfont-dasan-30"/>
+                    </view>
+
+                <text class="weui-tabbar__label">小铺中心</text>
+          </navigator>
+        </view>
+    </view>
+</view>
