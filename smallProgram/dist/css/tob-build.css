@@ -1,0 +1,112 @@
+.notic {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background: #f97a4d;
+  color: #f4f4f4;
+  padding-left: 15px;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  top: 0;
+  display: -webkit-box;
+  display: box;
+}
+.notic i {
+  color: #f4f4f4;
+  font-size: 13px;
+  margin-right: 5px;
+}
+.notic span {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  display: block;
+  vertical-align: middle;
+}
+body {
+  background: #f5f5f5;
+}
+.build .wrap {
+  position: relative;
+  height: 100%;
+}
+.build .wrap .content {
+  position: relative;
+  height: 100%;
+}
+.build .wrap .content .no-add {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  display: block;
+  text-align: center;
+}
+.build .wrap .content .no-add i {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.build .wrap .content .no-add span {
+  color: #333;
+  font-size: 13px;
+  display: block;
+}
+.build .wrap.product .weui-cells {
+  margin-top: 0;
+}
+.build .wrap.product .weui-cells:first-child:before {
+  display: none;
+}
+.build .wrap.product .weui-btn-area {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.build .wrap.fenlei-wrap .weui-cells {
+  margin-top: 0;
+}
+.build .wrap.fenlei-wrap .weui-cells:first-child:before {
+  display: none;
+}
+.build .wrap.fenlei-wrap .weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
+  color: #f97a4d;
+}
+.build .wrap.fenlei-wrap .weui-cell_access p span {
+  vertical-align: middle;
+}
+.build .wrap .shop-wrap .weui-panel__hd {
+  top: 30px;
+}
+.build .wrap .shop-wrap .weui-panel__bd {
+  padding-top: 30px;
+}
+/*编辑小铺信息*/
+.edit-container .product .content .weui-cells {
+  margin-top: 1.17647059em;
+}
+.edit-container .product .content .weui-cells:first-child {
+  margin-top: 0;
+}
+.edit-container .product .content .weui-cells .weui-cell__bd {
+  min-width: 80px;
+}
+.edit-container .product .content .weui-cells .weui-cell__ft img {
+  width: 32px;
+  height: 32px;
+}
+.edit-container .product .content .weui-cells__title + .weui-cells {
+  margin-top: 0;
+}
+/*bind 手机号*/
+.phone-container .notic {
+  position: inherit;
+}
+.phone-container .notic + .weui-cells {
+  margin-top: 0;
+}
+.phone-container .weui-msg h2 {
+  color: #f97a4d;
+  margin-bottom: 40px;
+}
+.phone-container .weui-msg .weui-icon-success {
+  color: #f97a4d;
+}
