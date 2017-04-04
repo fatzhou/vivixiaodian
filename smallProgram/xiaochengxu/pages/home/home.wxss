@@ -1,0 +1,22 @@
+/*首页.css*/
+.home-wrap .weui-media-box__hd {
+  width: 100px;
+  height: 100px;
+}
+.home-wrap .weui-panel__bd {
+  padding-left: 0;
+}
+.home-wrap .weui-panel__bd .weui-media-box__title {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.home-wrap .weui-panel__bd .weui-media-box__desc navigator {
+  color: #888;
+  font-size: 14px;
+}
+.home-wrap .weui-panel__bd .weui-media-box__info .weui-btn_plain-primary {
+  border-color: #f97a4d;
+  border-radius: 20px;
+  color: #f97a4d;
+  font-size: 15px;
+  line-height: 25px;}
