@@ -2,7 +2,7 @@
   <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                         <view class="weui-media-box__hd">
                             <image class="weui-media-box__thumb"
-                                   src="{{item.image}}"
+                                   src="{{item.imageList[0]}}"
                                    alt="" data-currentType="{{currentType}}" data-itemIndex="{{itemIndex}}" data-item="{{item}}" catchtap="tapItemInfo"></image>
                         </view>
                         <view class="weui-media-box__bd">
@@ -36,7 +36,14 @@
             <navigator href="#" class="cancel" bindtap="tapHideTips"><icon class="weui-icon-cancel"/></navigator>
 
             <view class="weui-dialog__hd"><strong class="weui-dialog__title">商品列表展示</strong></view>
-            <view class="weui-dialog__bd"><image src="../res/pic/1.png" mode="aspectFill"></image></view>
+            <!--<view class="weui-dialog__bd"><image src="../res/pic/1.png" mode="aspectFill"></image></view>-->
+            <swiper>
+                <block wx:for="{{showItem.imageList}}">
+                    <swiper-item>
+                        <image src="{{item}}" style="width:100%;height:100%; background-color: #ffffff;" mode="aspectFit"/>
+                    </swiper-item>
+                </block>
+            </swiper>
             <view class="weui-dialog__ft">
                 <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                     <view class="weui-media-box__bd"><view class="weui-media-box__title"><view>{{showItem.name}}</view><text>{{showItem.price}}元</text></view></view>

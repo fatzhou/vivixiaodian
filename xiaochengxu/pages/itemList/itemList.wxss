@@ -5,7 +5,6 @@ shop-wrap*/
 .shop-wrap .shop-layer {
   position: relative;
 }
-
 .shop-wrap .shop-layer .weui-panel__hd {
   position: fixed;
   width: 110px;

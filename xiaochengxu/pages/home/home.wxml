@@ -3,29 +3,54 @@
     <view class="wrap">
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__bd">
-                <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-                    <!--店铺图片-->
-                    <view class="weui-media-box__hd">
+                <block wx:if="{{shopList.length==0}}">
+                    <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd">
                         <image class="weui-media-box__thumb" src="../res/pic/shopcenter-ban1.jpg"></image>
-                    </view>
-
-                    <view class="weui-media-box__bd">
-                        <!--店铺名称-->
-                        <view class="weui-media-box__title">唐娜点心铺</view>
-                        
-                        <!--店铺联系方式-->
-                        <view class="weui-media-box__desc">138-1234-5678</view>
-
-                        <view class="weui-media-box__info">
-                            <view bindtap="tapEnterShop" class="weui-btn weui-btn_plain-primary">去看看</view>
                         </view>
+                        <view class="weui-media-box__bd">
+                            <view class="weui-media-box__title">唐娜点心铺</view>
 
-                        <view class="weui-media-box__info">
-                            <view bindtap="tapCheckOrderList" class="weui-btn weui-btn_plain-primary">我的订单</view>
+                            <view class="weui-media-box__desc">
+                                <text>13812345678</text>
+                            </view>
+
+                            <view class="weui-media-box__info">
+                                <view bindtap="tapEnterShop"  class="weui-btn weui-btn_plain-primary">去看看</view>
+                            </view>
+
+                            <view class="weui-media-box__info">
+                                <view bindtap="tapCheckOrderList" class="weui-btn weui-btn_plain-primary">我的订单</view>
+                            </view>
+
                         </view>
-
                     </view>
-                </view>
+                </block>
+                <block wx:else>
+                    <block wx:for="{{shopList}}">
+                        <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                            <view class="weui-media-box__hd">
+                                <image class="weui-media-box__thumb" src="{{item.logo}}"></image>
+                            </view>
+                            <view class="weui-media-box__bd">
+                                <view class="weui-media-box__title">"{{item.name}}"</view>
+
+                                <view class="weui-media-box__desc">
+                                    <text>"{{item.mobile}}"</text>
+                                </view>
+
+                                <view class="weui-media-box__info">
+                                    <view bindtap="tapEnterShop" class="weui-btn weui-btn_plain-primary">去看看</view>
+                                </view>
+
+                                <view class="weui-media-box__info">
+                                    <view bindtap="tapCheckOrderList" data-shopinfo="{{item}}" class="weui-btn weui-btn_plain-primary">我的订单</view>
+                                </view>
+
+                            </view>
+                        </view>
+                    </block>
+                </block>
             </view>
 
         </view>

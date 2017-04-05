@@ -1,46 +1,32 @@
 <!--商品详细列表-->
 <template name="wareItem">
+  <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd">
+                            <image class="weui-media-box__thumb"
+                                   src="{{item.imageList[0]}}"
+                                   alt="" data-currentType="{{currentType}}" data-itemIndex="{{itemIndex}}" data-item="{{item}}" catchtap="tapItemInfo"></image>
+                        </view>
+                        <view class="weui-media-box__bd">
+                            <view class="weui-media-box__title">{{item.name}}</view>
 
-    <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-        <!--商品图片-->
-        <view class="weui-media-box__hd">
-            <image class="weui-media-box__thumb" src="{{item.image}}" alt="" data-currentType="{{currentType}}" data-itemIndex="{{itemIndex}}" data-item="{{item}}" catchtap="tapItemInfo"></image>
-        </view>
-        
-        <!--商品选择列表-->
-        <view class="weui-media-box__bd">
-            
-            <!--商品名称-->
-            <view class="weui-media-box__title">{{item.name}}</view>
-            
-            <!--商品已售件数-->
-            <view class="weui-media-box__desc">已售{{item.aleadySold}}</view>
-            
-            <!--商品价格-->
-            <view class="weui-media-box__info">
-                <text>{{item.price}}元</text>
-                
-                <!--数量选项-->
-                <view class="price-oper">
-                    <!--减号-->
-                    <navigator data-item="{{item}}" data-step="{{-1}}" data-currentType="{{currentType}}" data-itemIndex="{{itemIndex}}"                        bindtap="tapOrderItem" wx-if="{{item.orderNum>0}}">
-                        <icon class="iconfont-dasan-11"/>
-                    </navigator>
+                            <view class="weui-media-box__desc">已售{{item.aleadySold}}</view>
 
-                    <!--数量-->
-                    <text>{{item.orderNum}}</text>
+                            <view class="weui-media-box__info">
+                                <text>{{item.price}}元</text>
 
-                    <!--加号-->
-                    <navigator href="#" class="" data-item="{{item}}" data-step="{{1}}" data-currentType="{{currentType}}"                                          data-itemIndex="{{itemIndex}}" bindtap="tapOrderItem">
-                            <icon class="iconfont-dasan-12"/>
-                    </navigator>
-                </view>
-            </view>
-        </view>
-    </view>
+                                <view class="price-oper">
+                                    <navigator data-item="{{item}}" data-step="{{-1}}" data-currentType="{{currentType}}" data-itemIndex="{{itemIndex}}" bindtap="tapOrderItem" wx-if="{{item.orderNum>0}}">
+                                        <icon class="iconfont-dasan-11"/>
+                                    </navigator>
+                                    <text>{{item.orderNum}}</text>
+                                    <navigator href="#" class="" data-item="{{item}}" data-step="{{1}}" data-currentType="{{currentType}}" data-itemIndex="{{itemIndex}}" bindtap="tapOrderItem"><icon
+                                            class="iconfont-dasan-12"/></navigator>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
 </template>
 
-<!--商品分类列表-->
 <template name="itemTips">
 <!--dialog proview start-->
     <view class="js_dialog product-view" id="iosDialog1" style="opacity: 1;">
@@ -51,7 +37,14 @@
             <navigator href="#" class="cancel" bindtap="tapHideTips"><icon class="weui-icon-cancel"/></navigator>
 
             <view class="weui-dialog__hd"><strong class="weui-dialog__title">商品列表展示</strong></view>
-            <view class="weui-dialog__bd"><image src="../res/pic/1.png" mode="aspectFill"></image></view>
+            <!--<view class="weui-dialog__bd"><image src="../res/pic/1.png" mode="aspectFill"></image></view>-->
+            <swiper>
+                <block wx:for="{{showItem.imageList}}">
+                    <swiper-item>
+                        <image src="{{item}}" style="width:100%;height:100%; background-color: #ffffff;" mode="aspectFit"/>
+                    </swiper-item>
+                </block>
+            </swiper>
             <view class="weui-dialog__ft">
                 <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                     <view class="weui-media-box__bd"><view class="weui-media-box__title"><view>{{showItem.name}}</view><text>{{showItem.price}}元</text></view></view>
@@ -109,8 +102,7 @@
         </view>
 
     </view>
-
-    <!--购物车信息-->
+    <!--购物车-->
     <view class="weui-cells shopcar-bar">
         <view class="weui-cell">
         <view class="weui-cell__hd">
@@ -124,10 +116,10 @@
             </view>
         </view>
     </view>
-
-    <!--尾部信息-->
+    <!--footer-->
      <view class="footer">
         <view class="weui-tabbar">
+
             <navigator url="#" class="weui-tabbar__item weui-bar__item_on">
                 <view>
                     <icon class="iconfont iconfont-dasan-28 weui-tabbar__icon"/>
@@ -145,9 +137,8 @@
             </navigator>
         </view>
     </view>
-    
-    <!--footer end-->
-    <block wx-if="{{isShowItemInfo}}">
+      <!--footer end-->
+      <block wx-if="{{isShowItemInfo}}">
         <template is="itemTips" data="{{showItem , showWareIndex, showItemIndex}}"/>
-    </block>
+      </block>
 </view>

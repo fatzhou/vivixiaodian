@@ -135,6 +135,7 @@ Page({
           product = res.data.prodlist[i];
           product.orderNum = 0;
           product.index = i;
+          product.imageList = product.image.split("|");
           //添加到类别中
           for(var j = 0;j < app.globalData.currentWareList.length; j++) {
             ware = app.globalData.currentWareList[j];
