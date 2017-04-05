@@ -1,0 +1,9 @@
+<block wx:for="{{orderList}}" wx:for-item="order">
+<view>
+    订单号:{{order.orderno}}
+</view>
+
+<view>
+    总价:{{order.price}}
+</view>
+</block>
