@@ -46,6 +46,8 @@ Page({
 
   getAttentionShopList: function () {
     var that = this;
+    console.log(app.globalData.userOpenID);
+    console.log(app.globalData.session_key);
     wx.request({
         url: app.globalData.serverHost + '/api/user/query',
         data: {
@@ -60,29 +62,29 @@ Page({
           // success
           console.log("/api/user/query success");
           console.log(res.data);
-          var list = res.data.shoplist.split("|")
+          var list = res.data.shoplist
           var pList = [];
           var plistIndex = 0;
           //排除无效数据,这个需要后台做排重处理,
           //本来就应该重后台轻客户端,而且扫码打开小程序时是不知道我关注过什么的
-          for(var i = 0; i < list.length; i++) {
-            console.log("length = "+list[i].length)
-            if(list[i].length != 0) {
-              // var shopInfo = {};
-              // shopInfo.shopid = list[i];
-              // pList[plistIndex++] = shopInfo;
-              that.data.shopIDList[plistIndex++] = list[i];
-            }
-          }
-          list = pList;
+          // for(var i = 0; i < list.length; i++) {
+          //   console.log("length = "+list[i].length)
+          //   if(list[i].length != 0) {
+          //     // var shopInfo = {};
+          //     // shopInfo.shopid = list[i];
+          //     // pList[plistIndex++] = shopInfo;
+          //     that.data.shopIDList[plistIndex++] = list[i];
+          //   }
+          // }
+          // list = pList;
 
           that.setData({
-            shopIDList: that.data.shopIDList,
+            shopList: list,
             currentLoadedShopIndex: 0
           })
           console.log(that.data.shopList);
 
-          that.getShopListDetail(that.data.shopIDList);
+          // that.getShopListDetail(that.data.shopIDList);
         },
         fail: function(res) {
           // fail

@@ -1,0 +1,7 @@
+.login .weui-cells__title {
+  margin-top: 2.77em;
+  margin-bottom: 1.3em;
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+}

@@ -1,17 +1,32 @@
-/*确认订单*/
 .dingdan-wrap .wrap {
   min-height: 100%;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  padding-bottom: 60px;
+  padding-bottom: 60px;background:#f4f4f4;
+}
+.dingdan-wrap .weui-form-preview {
+  margin-bottom: 20px;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__hd:after {
+  display: none;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__hd .weui-form-preview__label {
+  font-size: 16px;
+  color: #333;
 }
 .dingdan-wrap .weui-form-preview .weui-form-preview__bd {
-  padding: 0 ;
+  padding: 0;
 }
 .dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item {
   position: relative;
   font-size: 16px;
   padding: 10px 15px;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item .weui-form-preview__label {
+  color: #333;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item .weui-form-preview__value {
+  line-height: 20px;
 }
 .dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item .weui-form-preview__value small {
   display: block;
@@ -20,6 +35,7 @@
 .dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item:before {
   content: " ";
   position: absolute;
+  left: 0;
   top: 0;
   right: 0;
   height: 1px;
@@ -29,23 +45,31 @@
   transform-origin: 0 0;
   -webkit-transform: scaleY(0.5);
   transform: scaleY(0.5);
-  left: 15px;
+}
+.dingdan-wrap .weui-form-preview .weui-form-preview__ft .weui-btn {
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
 }
 .dingdan-wrap .total-price {
   text-align: right;
 }
-.dingdan-wrap .total-price view {
+.dingdan-wrap .total-price .weui-form-preview__value {
+  font-size: 14px;
+  color: #999;
+}
+.dingdan-wrap .total-price span {
   margin-left: 10px;
   color: #000;
-  font-size: 20px;display: inline-block
+  font-size: 20px;
 }
-.dingdan-wrap .footer {
+.dingdan-wrap footer {
   background: #F3F3F3;
 }
-.dingdan-wrap .footer .copyright {
+.dingdan-wrap footer .copyright {
   text-align: center;
   margin-top: 15px;
 }
-.dingdan-wrap .footer .copyright image {
+.dingdan-wrap footer .copyright img {
   height: 13px;
 }

@@ -107,31 +107,31 @@ App({
     })
   },
 
-  getUserInfo:function(cb){
-    var that = this
-    if(this.globalData.userInfo){
-      typeof cb == "function" && cb(this.globalData.userInfo)
-    }else{
-      //调用登录接口
-      wx.login({
-        success: function (res) {
-          wx.getUserInfo({
-            success: function (res1) {
-              that.globalData.userInfo = res1.userInfo
-              typeof cb == "function" && cb(that.globalData.userInfo)
-            }
-          })
-        }
-      })
-    }
-  },
+  // getUserInfo:function(cb){
+  //   var that = this
+  //   if(this.globalData.userInfo){
+  //     typeof cb == "function" && cb(this.globalData.userInfo)
+  //   }else{
+  //     //调用登录接口
+  //     wx.login({
+  //       success: function (res) {
+  //         wx.getUserInfo({
+  //           success: function (res1) {
+  //             that.globalData.userInfo = res1.userInfo
+  //             typeof cb == "function" && cb(that.globalData.userInfo)
+  //           }
+  //         })
+  //       }
+  //     })
+  //   }
+  // },
 
   globalData:{
     serverHost: "https://www.wxpuu.com",//"https://www.ingcloud.net",https://www.wxpuu.com,
     userOpenID: null,
     session_key: null,
     
-    currentShopOpenID: "ooJb5wGwI_Yw55JoCygRmQJGYR64",
+    currentShopOpenID: "oogLjwhPimfaJqGNLr4Kmb_PbKk0",
     currentShopID: "7086b7f20b80e980fd519770c98629125fe3641b",
     lastShopOpenID: "",
     lasrShopID: "",

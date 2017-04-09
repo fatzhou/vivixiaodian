@@ -2,11 +2,10 @@
   "pages":[
     "pages/home/home",  
     "pages/itemList/itemList",   
-    "pages/index/index",
     "pages/proview/index",
     "pages/shopcenter/index",
     "pages/map/index",
-    "pages/dingdan/index",
+    "pages/orderConfirm/index",
     "pages/ordercomplete/index",
     "pages/orderList/index"
   ],

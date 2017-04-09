@@ -13,6 +13,7 @@ Page({
       product.count = app.globalData.currentOrder[tmpItem].orderNum
       prodlist.push(product)
     }
+    console.log(prodlist);
     wx.request({
       url: app.globalData.serverHost + '/api/user/order',
       data: {

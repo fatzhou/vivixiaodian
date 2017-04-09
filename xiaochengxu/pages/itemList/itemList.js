@@ -100,7 +100,7 @@ Page({
 
   tapConfirmOrder: function(event) {
     wx.navigateTo({
-      url: '../dingdan/index'
+      url: '../orderConfirm/index'
     })
   },
 

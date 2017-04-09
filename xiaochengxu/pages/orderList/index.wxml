@@ -1,9 +1,31 @@
-<block wx:for="{{orderList}}" wx:for-item="order">
-<view>
-    订单号:{{order.orderno}}
-</view>
+<view class="container dingdan-wrap">
+    <view class="wrap">
+<!--循环订单列表-->
+    <block wx:for="{{orderList}}" wx:for-item="order">
 
-<view>
-    总价:{{order.price}}
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">{{order.orderno}}</view>
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+
+                <block wx:for="{{order.detail}}" wx:for-item="detail">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">{{detail.prodid}}</view>
+                        <span class="weui-form-preview__value">{{detail.price}}<small>x{{detail.count}}</small></span>
+                    </view>
+                </block>
+
+                <view class="weui-form-preview__item total-price">
+                    <view class="weui-form-preview__label"></view>
+                    <span class="weui-form-preview__value">商品总额<span>{{order.price}}</span></span>
+                </view>
+            </view>
+        </view>
+
+    </block>
+
+    </view>
 </view>
-</block>

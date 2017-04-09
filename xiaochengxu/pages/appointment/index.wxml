@@ -1,0 +1,79 @@
+<view class="container yuyue-wrap">
+    <view class="wrap">
+        <view class="shop-wrap">
+            <view class="shop-layer">
+                <view class="weui-panel__bd">
+                    <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd">
+                      <image class="weui-media-box__thumb"
+                                   src="../res/pic/1.png"
+                                   alt=""></image>
+                        </view>
+                        <view class="weui-media-box__bd">
+                            <view class="weui-media-box__title">标题一</view>
+
+                            <view class="weui-media-box__info"><span><em class="statu statu-default">上班中</em></span>
+
+                                <navigator href="javascript:;" class="weui-btn weui-btn_primary">预约</navigator>
+                            </view>
+                        </view>
+                    </view>
+                    <!--item-->
+                    <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd">
+                        <image class="weui-media-box__thumb"
+                                   src="../res/pic/1.png"
+                                   alt=""></image>
+                        </view>
+                        <view class="weui-media-box__bd">
+                            <view class="weui-media-box__title">标题一</view>
+
+                            <view class="weui-media-box__info"><span><em class="statu statu-dis">休息中</em></span>
+
+                                <navigator href="javascript:;" class="weui-btn weui-btn_primary weui-btn_disabled">预约
+                                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                    <!--item-->
+                    <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd">
+                       <image class="weui-media-box__thumb"
+                                   src="../res/pic/1.png"
+                                   alt=""></image>
+                        </view>
+                        <view class="weui-media-box__bd">
+                            <view class="weui-media-box__title">标题一</view>
+
+                            <view class="weui-media-box__info"><span><em class="statu statu-dis">休息中</em></span>
+
+                                <navigator href="javascript:;" class="weui-btn weui-btn_primary weui-btn_disabled">预约
+                                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                    <!--item-->
+                    <view class="weui-media-box weui-media-box_appmsg">
+                        <view class="weui-media-box__hd">
+                            <image class="weui-media-box__thumb"
+                                   src="../res/pic/1.png"
+                                   alt=""></image>
+                        </view>
+                        <view class="weui-media-box__bd">
+                            <view class="weui-media-box__title">标题一</view>
+
+                            <view class="weui-media-box__info"><span><em class="statu statu-dis">休息中</em></span>
+
+                                <navigator href="javascript:;" class="weui-btn weui-btn_primary weui-btn_disabled">预约
+                                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+
+        </view>
+       
+    </view>
+</view>
+
