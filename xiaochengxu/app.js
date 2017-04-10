@@ -53,7 +53,7 @@ App({
   getOpenID: function (code) {
     var that = this
     wx.request({
-      url: that.globalData.serverHost + '/api/mp/keyxcx',
+      url: that.globalData.serverHost + '/api/mp/xcxCode2Session',
       data: {
         code: code
       },
