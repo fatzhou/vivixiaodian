@@ -33,15 +33,15 @@
             <view class="weui-cell weui-cell_access" bindtap="bindNavigation">
                 <view class="weui-cell__bd">
                     <view><text>地址</text>
-                        <text class="small">{{shop.address}}</text>
+                        <text class="small">{{shop.addr}}</text>
                     </view>
                 </view>
                 <view class="weui-cell__ft"><i class="iconfont-dasan-13"></i><text>导航</text></view>
             </view>
-            <view class="weui-cell weui-cell_access" data-phonenum="{{shop.phone}}" bindtap="tapPhoneCall">
+            <view class="weui-cell weui-cell_access" data-phonenum="{{shop.mobile}}" bindtap="tapPhoneCall">
                 <view class="weui-cell__bd">
                     <view><text>电话</text>
-                     <text class="small">{{shop.phone}}</text>
+                     <text class="small">{{shop.mobile}}</text>
                      </view>
                 </view>
                 <view class="weui-cell__ft"><i class="iconfont-dasan-16"></i><text>拨打</text></view>

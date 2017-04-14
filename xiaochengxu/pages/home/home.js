@@ -17,10 +17,15 @@ Page({
   },
   //去看看
   tapEnterShop: function(shopinfo) {
-    console.log('go navigation' + shopinfo)
-    if(shopinfo.shopid) {
-      app.globalData.currentShopID = shopinfo.shopid;
-      app.globalData.currentShop = shopinfo;
+    console.log('tapEnterShop')
+    console.log(shopinfo)
+    if (shopinfo && shopinfo.target && shopinfo.target.dataset && shopinfo.target.dataset.shopinfo) {
+      console.log(shopinfo.target.dataset)
+      var shop = shopinfo.target.dataset.shopinfo
+      if(shop.shopid) {
+        app.globalData.currentShopID = shop.shopid;
+        app.globalData.currentShop = shop;
+      }
     }
     wx.navigateTo({
       url: '../itemList/itemList'
@@ -65,18 +70,6 @@ Page({
           var list = res.data.shoplist
           var pList = [];
           var plistIndex = 0;
-          //排除无效数据,这个需要后台做排重处理,
-          //本来就应该重后台轻客户端,而且扫码打开小程序时是不知道我关注过什么的
-          // for(var i = 0; i < list.length; i++) {
-          //   console.log("length = "+list[i].length)
-          //   if(list[i].length != 0) {
-          //     // var shopInfo = {};
-          //     // shopInfo.shopid = list[i];
-          //     // pList[plistIndex++] = shopInfo;
-          //     that.data.shopIDList[plistIndex++] = list[i];
-          //   }
-          // }
-          // list = pList;
 
           that.setData({
             shopList: list,

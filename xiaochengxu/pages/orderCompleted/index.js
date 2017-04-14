@@ -2,7 +2,7 @@ var app = getApp()
 Page({
   data: {
     totalprice: 0,
-    orderno: null
+    orderno: ""
   },
 
   onLoad: function (info) {

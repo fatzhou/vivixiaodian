@@ -29,7 +29,7 @@ Page({
 
   switchHomePage: function(event) {
     wx.redirectTo({
-      url: '../index/index'
+      url: '../itemList/itemList'
     })
   },
 

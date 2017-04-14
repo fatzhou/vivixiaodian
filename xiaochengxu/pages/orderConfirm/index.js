@@ -44,7 +44,7 @@ Page({
         }
 
         wx.redirectTo({
-          url: '../ordercomplete/index?orderno='+res.data.orderno+'&totalprice='+res.data.totalprice
+          url: '../orderCompleted/index?orderno='+res.data.orderno+'&totalprice='+res.data.totalprice
         })
       },
       fail: function(res) {

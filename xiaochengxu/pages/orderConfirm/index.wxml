@@ -44,10 +44,4 @@
 
 
     </view>
-    <!--footer-->
-    <view class="footer">
-        <view class="copyright">
-            <p><image src="../res/image/icon_footer_link.png"></image></p>
-        </view>
-    </view>
 </view>

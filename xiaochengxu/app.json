@@ -6,8 +6,8 @@
     "pages/shopcenter/index",
     "pages/map/index",
     "pages/orderConfirm/index",
-    "pages/ordercomplete/index",
-    "pages/orderList/index"
+    "pages/orderList/index",
+    "pages/orderCompleted/index"
   ],
   "window":{
     "backgroundTextStyle":"light",

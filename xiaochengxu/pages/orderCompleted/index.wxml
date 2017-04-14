@@ -1,0 +1,17 @@
+<view class="container yuyue-wrap">
+    <view class="wrap ">
+        <view class="weui-msg">
+            <view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">成功下单!
+                  </view>
+                <view class="weui-msg__desc">
+                   <ul class="detail">
+                       <li><view>订单号:{{orderno}}</view></li>
+                       <li><view>总价:{{totalprice}}元</view></li>
+                   </ul>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>
