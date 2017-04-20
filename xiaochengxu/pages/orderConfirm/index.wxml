@@ -1,6 +1,6 @@
 <view class="container dingdan-wrap">
     <view class="wrap">
-        <!--<view class="weui-cells__title">就餐方式</view>
+        <view class="weui-cells__title">就餐方式</view>
         <view class="weui-cells  weui-cells_checkbox">
             <view class="weui-cell weui-check__label" for="">
                 <view class="weui-cell__bd">
@@ -14,23 +14,35 @@
             <view class="weui-cell weui-check__label" for="">
 
                 <view class="weui-cell__bd">
-                    <p>外卖</p>
+                    <p>带走</p>
                 </view>
                 <view class="weui-cell__ft">
                     <input type="radio" name="radio1" class="weui-check" id="" checked="checked" />
                     <view class="weui-icon-checked"></view>
                 </view>
             </view>
-        </view>-->
+        </view>
+
+        <view class="weui-cells__title">支付方式</view>
+        <view class="weui-cells__title">
+            <view class="weui-cells__title">
+               微信支付
+            </view>
+        </view>        
 
 
-        <view class="weui-cells__title">所选商品</view>
+        <view class="weui-cells__title">已点商品</view>
         <view class="weui-form-preview">
             <view class="weui-form-preview__bd">
                 <block wx:for="{{order}}" wx:for-item="item">
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">{{item.name}}</view>
-                        <view class="weui-form-preview__value">{{item.price}}元<small>x{{item.orderNum}}</small></view>
+                        <view class="weui-form-preview__label">
+                            {{item.name}}
+                        </view>
+                        <view class="weui-form-preview__value">
+                        {{item.price}}元<small>
+                        x{{item.orderNum}}份</small>
+                        </view>
                     </view>
                 </block>
             </view>
