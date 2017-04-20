@@ -3,7 +3,7 @@
     <view class="wrap">
         <view class="weui-panel weui-panel_access">
             <view class="weui-panel__bd">
-                <block wx:if="{{shopList.length==0}}">
+                <!--<block wx:if="{{shopList.length==0}}">
                     <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                         <view class="weui-media-box__hd">
                         <image class="weui-media-box__thumb" src="../res/pic/shopcenter-ban1.jpg"></image>
@@ -26,7 +26,7 @@
                         </view>
                     </view>
                 </block>
-                <block wx:else>
+                <block wx:else>-->
                     <block wx:for="{{shopList}}">
                         <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
                             <view class="weui-media-box__hd">
@@ -50,7 +50,7 @@
                             </view>
                         </view>
                     </block>
-                </block>
+                <!--</block>-->
             </view>
 
         </view>

@@ -6,14 +6,14 @@
         <view class="weui-form-preview">
             <view class="weui-form-preview__hd">
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">{{order.orderno}}</view>
+                    <view class="weui-form-preview__label">{{order.dateString}}</view>
                 </view>
             </view>
             <view class="weui-form-preview__bd">
 
                 <block wx:for="{{order.detail}}" wx:for-item="detail">
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">{{detail.prodid}}</view>
+                        <view class="weui-form-preview__label">{{detail.name}}</view>
                         <span class="weui-form-preview__value">{{detail.price}}<small>x{{detail.count}}</small></span>
                     </view>
                 </block>

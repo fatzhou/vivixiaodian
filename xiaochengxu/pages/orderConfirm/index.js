@@ -11,8 +11,10 @@ Page({
       var product = {}
       product.prodid = app.globalData.currentOrder[tmpItem].prodid
       product.count = app.globalData.currentOrder[tmpItem].orderNum
+      product.name = app.globalData.currentOrder[tmpItem].name
       prodlist.push(product)
     }
+    console.log("你下的订单是:");
     console.log(prodlist);
     wx.request({
       url: app.globalData.serverHost + '/api/user/order',
