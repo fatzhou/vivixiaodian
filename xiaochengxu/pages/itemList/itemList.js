@@ -99,6 +99,10 @@ Page({
   },
 
   tapConfirmOrder: function(event) {
+    if(totalPrice==0)
+    {
+      return;
+    }
     wx.navigateTo({
       url: '../orderConfirm/index'
     })
