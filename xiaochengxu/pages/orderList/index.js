@@ -42,7 +42,7 @@ Page({
           if(typeof orderList[i].detail === 'string') {
             orderList[i].detail = JSON.parse(orderList[i].detail);  
           }
-          orderList[i].dateString = util.formatTimeChinese(new Date(orderList[i].createtime))
+          orderList[i].dateString = util.formatTimeChinese(new Date(orderList[i].createtime * 1000))
           console.log(orderList[i].detail)
         }
         that.data.currentpage += orderList.length;
