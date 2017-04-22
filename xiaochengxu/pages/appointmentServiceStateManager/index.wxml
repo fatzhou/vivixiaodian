@@ -1,0 +1,44 @@
+<view class="container yuyue-wrap b-wrap ">
+    <view class="wrap">
+        <!--店铺信息-->
+        <view class="b-container">
+            <view class="weui-cells">
+
+                <view class="weui-cell">
+                    <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                        <image src="../../../res/img/pic_160.png" style="width: 50px;height:50px;display: block"></image>
+                    </view>
+                    <view class="weui-cell__bd">
+                        <view>理发师名称</view>
+                        <view style="font-size: 13px;color: #888888;">小铺名称</view>
+                    </view>
+                </view>
+            </view>
+            <view class="weui-cells__title">上班状态</view>
+            <view class="weui-cells weui-cells_radio">
+                <view class="weui-cell weui-check__label" for="x11">
+                    <view class="weui-cell__bd">
+                        <view>上班中</view>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <input type="radio" class="weui-check" name="radio1" id="x11" />
+                        <view class="weui-icon-checked"></view>
+                    </view>
+                </view>
+                <view class="weui-cell weui-check__label" for="x12">
+
+                    <view class="weui-cell__bd">
+                        <view>休息中</view>
+                    </view>
+                    <view class="weui-cell__ft">
+                        <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked" />
+                        <view class="weui-icon-checked"></view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="footer">
+        <navigator url="url" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">接单</navigator> 
+    </view>
+</view>

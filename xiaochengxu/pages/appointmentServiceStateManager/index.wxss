@@ -1,0 +1,19 @@
+
+.yuyue-wrap.b-wrap{
+  background:#f3f3f3;
+}
+.yuyue-wrap.b-wrap .wrap {
+  padding-bottom: 0;
+}
+.yuyue-wrap.b-wrap .wrap .b-container .weui-cells:first-child {
+  margin-top: 0;
+}
+.yuyue-wrap.b-wrap .footer {
+  position: fixed;
+  bottom: 15px;
+  margin-top: 0;
+  padding-left:15px;padding-right:15px;
+  width:100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}

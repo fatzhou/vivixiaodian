@@ -1,0 +1,17 @@
+<view class="container yuyue-wrap">
+    <view class="wrap ">
+        <view class="weui-msg">
+            <view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">取消成功
+                  </view>
+            
+            </view>
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <a href="javascript:history.back();" class="weui-btn weui-btn_primary">关闭</a>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

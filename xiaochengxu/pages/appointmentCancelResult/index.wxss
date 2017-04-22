@@ -1,0 +1,16 @@
+
+.yuyue-wrap .weui-msg .weui-msg__desc .weui-msg__desc_hint{
+  
+}
+.yuyue-wrap .weui-msg .weui-msg__desc ul.detail {
+  margin-top: 25px;
+  text-align: left;
+}
+.yuyue-wrap .weui-msg .weui-msg__desc ul.detail li {
+  position: relative;
+}
+.yuyue-wrap .weui-msg .weui-msg__desc ul.detail li view{
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #D9D9D9;
+}
