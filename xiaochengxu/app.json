@@ -1,12 +1,11 @@
 {
-  "pages":[
-    "pages/orderConfirm/index",
+  "pages":[    
     "pages/home/home",  
     "pages/itemList/itemList",   
     "pages/proview/index",
     "pages/shopcenter/index",
     "pages/map/index",
-    
+    "pages/orderConfirm/index",
     "pages/orderList/index",
     "pages/orderCompleted/index"
   ],
