@@ -390,6 +390,7 @@ input.weui-btn_plain-default {
   padding-right: 15px;
   color: #999999;
   font-size: 14px;
+  background-color: #f8f8f8;
 }
 .weui-cells__title + .weui-cells {
   margin-top: 0;
