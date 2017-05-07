@@ -68,6 +68,12 @@ Page({
           console.log("/api/user/query success");
           console.log(res.data);
           var list = res.data.shoplist
+          var shopInfo;
+          for (var index = 0;index < list.length;index ++) {
+            shopInfo = list[index];
+            shopInfo.logoList = shopInfo.logo.split("|")
+          }
+
           var pList = [];
           var plistIndex = 0;
 

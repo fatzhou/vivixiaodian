@@ -1,5 +1,7 @@
 {
-  "pages":[    
+  "pages":[
+    "pages/appointmentResult/appointmentResult",
+    "pages/appointmentList/appointmentList",
     "pages/home/home",  
     "pages/itemList/itemList",   
     "pages/proview/index",
@@ -7,7 +9,8 @@
     "pages/map/index",
     "pages/orderConfirm/index",
     "pages/orderList/index",
-    "pages/orderCompleted/index"
+    "pages/orderCompleted/index",
+    "pages/appointmentCancelResult/appointmentCancelResult"
   ],
   "window":{
     "backgroundTextStyle":"light",
