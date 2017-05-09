@@ -2,30 +2,13 @@
     <view class="wrap">
         <!--banner-->
         <view class="slick-initialized slick-slider">
-            <view class="slick-list">
-                <view class="slick-track">
-                    <view data-index="-1" class="slick-slide slick-active">
-                        <image src="../res/pic/shopcenter-ban1.jpg"></image>
-                    </view>
-                    <view data-index="0" class="slick-slide"><image src="../res/pic/shopcenter-ban1.jpg"></image></view>
-                    <view data-index="0" class="slick-slide"><image src="../res/pic/shopcenter-ban1.jpg"></image></view>
-
-                </view>
-            </view>
-            <ul class="slick-dots" style="display: block;">
-                <li class="">
-                    <button>1</button>
-                </li>
-                <li class="">
-                    <button>2</button>
-                </li>
-                <li class="">
-                    <button>3</button>
-                </li>
-                <li class="slick-active">
-                    <button>4</button>
-                </li>
-            </ul>
+            <swiper>
+                <block wx:for="{{shop.logoList}}">
+                    <swiper-item>
+                        <image src="{{item}}" style="width:100%;height:100%; background-color: #ffffff;" mode="aspectFit"/>
+                    </swiper-item>
+                </block>
+            </swiper>
         </view>
         <!--简介-->
         <view class="weui-cells__title">{{shop.name}}  {{shop.info}}</view>

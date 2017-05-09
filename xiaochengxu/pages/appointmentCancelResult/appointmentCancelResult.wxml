@@ -1,3 +1,4 @@
+<!--pages/appointmentCancelResult.wxml-->
 <view class="container yuyue-wrap">
     <view class="wrap ">
         <view class="weui-msg">
@@ -9,7 +10,7 @@
             </view>
             <view class="weui-msg__opr-area">
                 <view class="weui-btn-area">
-                    <a href="javascript:history.back();" class="weui-btn weui-btn_primary">关闭</a>
+                    <a bindtap="tapGoBack"  class="weui-btn weui-btn_primary">关闭</a>
                 </view>
             </view>
         </view>
