@@ -1,33 +1,17 @@
-body {
-  background-color: #f97a4d;
-  background: -webkit-gradient(#febf83, #f97a4d);
-  background-image: linear-gradient(#febf83, #f97a4d);
-  background-repeat: no-repeat;
-}
-.guide {
-  /*pro-view*/
-}
-.guide .weui-btn-area {
-  margin-top: 40px;
-  margin-bottom: 20px;
-}
-.guide .weui-btn-area .weui-btn_plain-primary {
-  color: #f4f4f4;
-  border-color: rgba(255, 255, 255, 0.5);
-  border-radius: 48px;
-}
-.guide .pro-view {
+/*pro-view*/
+.pro-view {
   background: none;
   overflow: inherit;
 }
-.guide .pro-view .pro-view-item {
+.pro-view .pro-view-item {
   position: relative;
 }
-.guide .pro-view .pro-view-item .cancel {
+.pro-view .pro-view-item .cancel {
   position: absolute;
   top: 0;
+  left: 50%;
 }
-.guide .pro-view .pro-view-item .cancel:after {
+.pro-view .pro-view-item .cancel:after {
   content: "";
   position: absolute;
   top: -21px;
@@ -36,7 +20,7 @@ body {
   height: 20px;
   background: #f97a4d;
 }
-.guide .pro-view .pro-view-item .cancel i {
+.pro-view .pro-view-item .cancel i {
   font-size: 30px;
   position: absolute;
   top: -51px;
@@ -45,10 +29,10 @@ body {
   transform: translateX(-50%);
   color: #f97a4d;
 }
-.guide .pro-view .pro-view-item .weui-dialog__hd {
+.pro-view .pro-view-item .weui-dialog__hd {
   padding: 0;
 }
-.guide .pro-view .pro-view-item .weui-dialog__hd .weui-dialog__title {
+.pro-view .pro-view-item .weui-dialog__hd .weui-dialog__title {
   display: block;
   background: #f97a4d;
   height: 35px;
@@ -59,7 +43,7 @@ body {
   border-top-left-radius: 14px;
   border-top-right-radius: 14px;
 }
-.guide .pro-view .pro-view-item .weui-dialog__bd {
+.pro-view .pro-view-item .weui-dialog__bd {
   max-height: 350px;
   background: #fff;
   overflow: hidden;
@@ -68,10 +52,10 @@ body {
   padding: 0;
   font-size: 13px;
 }
-.guide .pro-view .pro-view-item .weui-dialog__bd img {
+.pro-view .pro-view-item .weui-dialog__bd img {
   width: 100%;
 }
-.guide .pro-view .pro-view-item .weui-dialog__ft {
+.pro-view .pro-view-item .weui-dialog__ft {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -82,10 +66,10 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
 }
-.guide .pro-view .pro-view-item .weui-dialog__ft:after {
+.pro-view .pro-view-item .weui-dialog__ft:after {
   display: none;
 }
-.guide .pro-view .pro-view-item .weui-dialog__ft a {
+.pro-view .pro-view-item .weui-dialog__ft a {
   color: #f4f4f4;
   font-size: 13px;
   background: #f97a4d;
@@ -95,10 +79,26 @@ body {
   line-height: 25px;
   margin-left: auto;
   margin-right: auto;
+  display: inline-block;
 }
-.guide .pro-view .pro-view-item .weui-dialog__ft a i {
+.pro-view .pro-view-item .weui-dialog__ft a i {
   font-size: 16px;
   color: #f4f4f4;
+}
+body {
+  background-color: #f97a4d;
+  background: -webkit-gradient(#febf83, #f97a4d);
+  background-image: linear-gradient(#febf83, #f97a4d);
+  background-repeat: no-repeat;
+}
+.guide .weui-btn-area {
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+.guide .weui-btn-area .weui-btn_plain-primary {
+  color: #f4f4f4;
+  border-color: rgba(255, 255, 255, 0.5);
+  border-radius: 48px;
 }
 .guide .step1 {
   padding: 80px 15px;

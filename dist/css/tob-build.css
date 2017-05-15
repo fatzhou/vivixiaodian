@@ -11,10 +11,15 @@
   display: -webkit-box;
   display: box;
 }
-.notic i {
-  color: #f4f4f4;
-  font-size: 13px;
+.notic .ico-notic {
+  background: url("../res/img/ico-notic.png") no-repeat 0 0;
+  width: 15px;
+  height: 13px;
+  display: inline-block;
+  -webkit-background-size: contain;
+  background-size: contain;
   margin-right: 5px;
+  vertical-align: middle;
 }
 .notic span {
   -webkit-box-flex: 1;
@@ -22,12 +27,19 @@
   display: block;
   vertical-align: middle;
 }
+.notic .oper {
+  position: absolute;
+  right: 20px;
+}
+.notic .oper i {
+  color: #fff;
+  font-size: 12px;
+}
 body {
   background: #f5f5f5;
 }
 .build .wrap {
   position: relative;
-  height: 100%;
 }
 .build .wrap .content {
   position: relative;
@@ -61,11 +73,26 @@ body {
   margin-top: 20px;
   margin-bottom: 20px;
 }
+.build .wrap.fenlei-wrap i {
+  color: #f97a4d;
+  margin-right: 5px;
+  font-size: 14px;
+}
 .build .wrap.fenlei-wrap .weui-cells {
   margin-top: 0;
 }
 .build .wrap.fenlei-wrap .weui-cells:first-child:before {
   display: none;
+}
+.build .wrap.fenlei-wrap .weui-cells .weui-cell.del {
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-right: 0;
+}
+.build .wrap.fenlei-wrap .weui-cells .weui-cell.del .weui-cell__ft {
+  background: #f97a4d;
+  padding: 10px 15px;
+  color: #fff;
 }
 .build .wrap.fenlei-wrap .weui-cells_checkbox .weui-check:checked + .weui-icon-checked:before {
   color: #f97a4d;
@@ -73,11 +100,55 @@ body {
 .build .wrap.fenlei-wrap .weui-cell_access p span {
   vertical-align: middle;
 }
+.build .wrap .shop-wrap .oper {
+  position: absolute;
+  right: 0;
+  top: 5px;
+  background: #fb9873;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  padding: 2px 5px;
+}
+.build .wrap .shop-wrap .oper .ico-edit {
+  background: url("../res/img/ico-edit.png") no-repeat 0 0;
+  display: block;
+  width: 13px;
+  height: 13px;
+  -webkit-background-size: contain;
+  background-size: contain;
+}
 .build .wrap .shop-wrap .weui-panel__hd {
   top: 30px;
 }
+.build .wrap .shop-wrap .weui-panel__hd .weui-media-box .oper {
+  top: 14px;
+}
 .build .wrap .shop-wrap .weui-panel__bd {
   padding-top: 30px;
+}
+.build .wrap .shop-wrap .weui-panel__bd .weui-media-box {
+  padding-right: 0;
+}
+.build .wrap .shop-wrap .weui-panel__bd .weui-media-box .weui-media-box__info {
+  padding-right: 15px;
+}
+.build .wrap .shop-wrap .add-wrap {
+  padding-top: 20px;
+  text-align: center;
+}
+.build .wrap .shop-wrap .add-wrap .add {
+  text-align: center;
+  padding: 5px 15px;
+  border-radius: 20px;
+  background: #f97a4d;
+  color: #fff;
+  font-size: 14px;
+  line-height: 20px;
+  height: auto;
+  display: inline-block;
+}
+.build .wrap .shop-wrap .shop-layer .weui-media-box__title {
+  position: relative;
 }
 /*编辑小铺信息*/
 .edit-container .product .content .weui-cells {
