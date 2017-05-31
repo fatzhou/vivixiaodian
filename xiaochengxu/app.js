@@ -131,8 +131,10 @@ App({
     userOpenID: null,
     session_key: null,
     
-    currentShopOpenID: "oogLjwhPimfaJqGNLr4Kmb_PbKk0",
-    currentShopID: "7086b7f20b80e980fd519770c98629125fe3641b",
+    currentShopOpenID: "",
+    //"oogLjwhPimfaJqGNLr4Kmb_PbKk0",
+    currentShopID: "",
+    //"7086b7f20b80e980fd519770c98629125fe3641b",
     lastShopOpenID: "",
     lasrShopID: "",
     userInfo:null,

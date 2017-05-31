@@ -1,0 +1,80 @@
+.yuyue-wrap {
+  /*����*/
+  /*�ɹ�ҳ*/
+}
+.yuyue-wrap .shop-wrap .shop-layer .weui-panel__bd {
+  padding-left: 0;
+}
+.yuyue-wrap .shop-wrap .shop-layer .weui-panel__bd .weui-media-box__info .statu {
+  font-size: 12px;
+  border-radius: 4px;
+  background: #1AAD19;
+  color: #fff;
+  padding: 2px 5px;
+}
+.yuyue-wrap .shop-wrap .shop-layer .weui-panel__bd .weui-media-box__info .statu.statu-dis {
+  color: #fff;
+  background: #ccc;
+}
+.yuyue-wrap .shop-wrap .shop-layer .weui-panel__bd .weui-media-box__info .weui-btn_primary {
+  border-radius: 5px;
+  font-size: 12px;
+}
+.yuyue-wrap .shopcar-bar:before,
+.yuyue-wrap .shopcar-bar:after {
+  display: none;
+}
+.yuyue-wrap .shopcar-bar .weui-cell {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+.yuyue-wrap .shopcar-bar .weui-btn {
+  width: 100%;
+  margin-bottom: 10px;
+}
+.yuyue-wrap.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item {
+  padding: 5px 15px;
+}
+.yuyue-wrap.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item .weui-form-preview__label {
+  font-size: 12px;
+  color: #999;
+}
+.yuyue-wrap.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item span.weui-form-preview__value {
+  font-size: 12px;
+  color: #999;
+}
+.yuyue-wrap .weui-msg .weui-msg__desc ul.detail {
+  margin-top: 15px;
+  text-align: left;
+}
+.yuyue-wrap .weui-msg .weui-msg__desc ul.detail li {
+  position: relative;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+.yuyue-wrap .weui-msg .weui-msg__desc ul.detail li:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 100%;
+  transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+  transform: scaleY(0.5);
+}
+/*����ʦB��*/
+.yuyue-wrap.b-wrap .wrap {
+  padding-bottom: 0;
+}
+.yuyue-wrap.b-wrap .wrap .b-container .weui-cells:first-child {
+  margin-top: 0;
+}
+.yuyue-wrap.b-wrap footer {
+  position: fixed;
+  bottom: 0;
+  margin-top: 0;
+}

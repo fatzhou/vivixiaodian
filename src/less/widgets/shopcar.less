@@ -1,3 +1,4 @@
+@color2: #f97a4d;
 /*购物车*/
 .shopcar-bar {
   background: #fff;
@@ -7,34 +8,34 @@
   .weui-cell {
     padding: 0;
     .weui-cell__hd {
-      margin: 0 30px 0 15px;
+      margin: 0 10px 0 15px;
       position: relative;
       text-align: center;
       .weui-badge {
+        background:@color2;
         position: absolute;
-        top: -.4em;
-        right: -.4em;
+        top: auto;
+        right: -5px;
+        width: 16px;
+        height: 16px;
+        padding: 0;
+        bottom: 5px;
       }
-      h3 {
-        font-size: 12px;
-      }
-      img {
-        width: 30px;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        margin-bottom: 5px;
+      i{
+       display: inline-block;color:@color2;font-size:30px;
       }
     }
     .weui-cell__bd p {
-      font-size: 24px;
-      font-weight: 700;
+      font-size: 20px;
+      color:@color2;
+      padding-left:15px;
     }
     .weui-cell__ft .weui-btn {
-      height: 60px;
-      line-height: 60px;
+      height: 52px;
+      line-height: 52px;
       border-radius: 0;
-      width: 120px;
+      width: 100px;
+      font-size:16px;
     }
   }
 
