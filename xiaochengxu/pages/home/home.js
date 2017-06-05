@@ -28,7 +28,8 @@ Page({
       }
     }
     wx.navigateTo({
-      url: '../itemList/itemList'
+      // url: '../itemList/itemList'
+      url: '../appointmentList/appointmentList'
       // success: function (e) {  
       //   var page = getCurrentPages().pop();  
       //   if (page == undefined || page == null) return;  
@@ -37,10 +38,11 @@ Page({
     })
   },
 
+//我的订单
   tapCheckOrderList: function() {
     console.log('go navigation')
     wx.navigateTo({
-      url: '../orderList/index',
+      url: '../appointmentResult/appointmentResult',
       // success: function (e) {  
       //   var page = getCurrentPages().pop();  
       //   if (page == undefined || page == null) return;  
