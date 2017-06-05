@@ -24,6 +24,13 @@ Page({
     })
   },
 
+  //预约按钮跳转函数
+  appointmentTap: function () {
+    wx.navigateTo({
+      url: '../registerPhone/index'
+    })
+  },
+
   tapName: function(event) {
     console.log(event)
     this.setData({

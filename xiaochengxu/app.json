@@ -1,7 +1,8 @@
 {
-  "pages":[
-    "pages/home/home",  
-    "pages/itemList/itemList",   
+  "pages": [    
+    "pages/appointmentConfirm/appointmentConfirm",
+    "pages/home/home",
+    "pages/itemList/itemList",
     "pages/proview/index",
     "pages/shopcenter/index",
     "pages/map/index",
@@ -9,12 +10,16 @@
     "pages/orderList/index",
     "pages/orderCompleted/index",
     "pages/appointmentResult/appointmentResult",
-    "pages/appointmentList/appointmentList","pages/appointmentCancelResult/appointmentCancelResult"
+    "pages/appointmentList/appointmentList",
+    "pages/appointmentCancelResult/appointmentCancelResult",
+    "pages/registerPhone/index",
+    "pages/appointmentConfirm/appointmentConfirm"
+
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "微小铺",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "black"
   }
 }
