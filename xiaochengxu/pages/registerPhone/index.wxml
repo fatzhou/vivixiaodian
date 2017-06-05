@@ -22,7 +22,7 @@
 
         </view>
         <view class="weui-btn-area">
-            <a class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">确定</a>
+            <a class="weui-btn weui-btn_primary" bindtap="confirmTap" href="javascript:" id="showTooltips">确定</a>
         </view>
     </view>
 </view>

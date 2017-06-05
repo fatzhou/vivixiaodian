@@ -1,6 +1,5 @@
 {
   "pages": [    
-    "pages/appointmentConfirm/appointmentConfirm",
     "pages/home/home",
     "pages/itemList/itemList",
     "pages/proview/index",
@@ -13,7 +12,10 @@
     "pages/appointmentList/appointmentList",
     "pages/appointmentCancelResult/appointmentCancelResult",
     "pages/registerPhone/index",
-    "pages/appointmentConfirm/appointmentConfirm"
+    "pages/appointmentConfirm/appointmentConfirm",
+    "pages/restConfirm/restConfirm",
+    "pages/appointmentServiceStateManager/index",
+    "pages/appointmentServiceOrderList/index"
 
   ],
   "window": {

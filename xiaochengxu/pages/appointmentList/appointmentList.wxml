@@ -65,7 +65,7 @@
 
           <view class="weui-media-box__bd">
             <view class="weui-media-box__info">
-              <navigator href="javascript:;" class="weui-btn weui-btn_primary">快速预约
+              <navigator bindtap="appointmentTap" href="javascript:;" class="weui-btn weui-btn_primary">快速预约
               </navigator>
             </view>
           </view>
