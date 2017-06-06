@@ -20,7 +20,7 @@
             <view class="weui-msg__opr-area">
                 <view class="weui-btn-area">
                     <a bindtap="tapCancelAppointment" class="weui-btn weui-btn_warn">取消预约</a>
-                    <a href="javascript:history.back();" class="weui-btn weui-btn_default">关闭</a>
+                    <a bindtap="tapCancel" href="javascript:history.back();" class="weui-btn weui-btn_default">关闭</a>
                 </view>
             </view>
         </view>

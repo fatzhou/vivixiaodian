@@ -21,6 +21,10 @@ Page({
         wx.redirectTo({
           url: '../appointmentCancelResult/appointmentCancelResult'
         })
-    }
+    },
+
+  tapCancel : function() {
+      wx.navigateBack()
+    }    
 
 })

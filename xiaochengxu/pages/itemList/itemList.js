@@ -13,7 +13,7 @@ Page({
     userInfo: {},
     normalTypeStyle: 'weui-media-box weui-media-box_appmsg',
     pressedTypeStyle: 'weui-media-box weui-media-box_appmsg current',
-    
+
     needLoadShopInfo: false,
     currentType: 0,
     shop: {},
@@ -25,34 +25,34 @@ Page({
     totalPrice: 0
   },
   //事件处理函数
-  bindViewTap: function() {
+  bindViewTap: function () {
     wx.navigateTo({
       url: '../logs/logs'
     })
   },
 
-  tapName: function(event) {
+  tapName: function (event) {
     console.log(event)
     this.setData({
       className: 'weui-media-box weui-media-box_appmsg current'
     })
   },
 
-  tapAllType: function(event) {
+  tapAllType: function (event) {
     console.log(event)
     this.setData({
       currentType: -1
     })
   },
 
-  tapType: function(event) {
+  tapType: function (event) {
     console.log(event)
     this.setData({
       currentType: event.target.dataset.index
     })
   },
 
-  tapOrderItem: function(event) {
+  tapOrderItem: function (event) {
     console.log(event)
     console.log(event.currentTarget.dataset)
     var wareIndex = event.currentTarget.dataset.currenttype
@@ -63,7 +63,7 @@ Page({
     item.orderNum += event.currentTarget.dataset.step
     if (item.orderNum >= 0) {
       this.data.totalPrice += event.currentTarget.dataset.step * event.currentTarget.dataset.item.price
-      if(item.orderNum > 0) {
+      if (item.orderNum > 0) {
         app.globalData.currentOrder[item.prodid] = item
       } else {
         delete app.globalData.currentOrder[item.prodid]
@@ -84,12 +84,12 @@ Page({
     app.globalData.currentShop = this.data.shop;
     app.globalData.currentWareList = this.data.wares;
     console.log(app.globalData.currentOrder);
-    for(var tmpItem in app.globalData.currentOrder) {
+    for (var tmpItem in app.globalData.currentOrder) {
       console.log(app.globalData.currentOrder[tmpItem].classid);
     }
   },
 
-  tapItemInfo: function(event) {
+  tapItemInfo: function (event) {
     console.log(event)
     this.setData({
       showItem: event.currentTarget.dataset.item,
@@ -99,15 +99,14 @@ Page({
     })
   },
 
-  tapHideTips: function(event) {
+  tapHideTips: function (event) {
     this.setData({
       isShowItemInfo: false
     })
   },
 
-  tapConfirmOrder: function(event) {
-    if(this.data.totalPrice<=0)
-    {
+  tapConfirmOrder: function (event) {
+    if (this.data.totalPrice <= 0) {
       return;
     }
 
@@ -116,25 +115,26 @@ Page({
     })
   },
 
-  switchShopInfoPage: function(event) {
+  switchShopInfoPage: function (event) {
     wx.redirectTo({
       url: '../shopcenter/index'
     })
   },
 
-  getProductList : function() {
+  getProductList: function () {
     var that = this
     //获取店铺商品列表
     wx.request({
       url: app.globalData.serverHost + '/api/shop/prodlist',
-      data: {openid: app.globalData.userOpenID,
-             shopid : app.globalData.currentShopID
-            },
+      data: {
+        openid: app.globalData.userOpenID,
+        shopid: app.globalData.currentShopID
+      },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       //header: {
       //  'content-type': 'application/json'
       //},
-      success: function(res){
+      success: function (res) {
         // success
         app.globalData.hasLoadAllData = true;
         console.log("获取店铺商品列表成功返回");
@@ -143,32 +143,32 @@ Page({
         //获取到商品后,按类别放好,并增加订购属性
         var ware;
         var product;
-        for(var i = 0;i < res.data.prodlist.length; i++) {
+        for (var i = 0; i < res.data.prodlist.length; i++) {
           product = res.data.prodlist[i];
           product.orderNum = 0;
           product.index = i;
           product.imageList = product.image.split("|");
           //添加到类别中
-          for(var j = 0;j < app.globalData.currentWareList.length; j++) {
+          for (var j = 0; j < app.globalData.currentWareList.length; j++) {
             ware = app.globalData.currentWareList[j];
-            if(ware.classid == product.classid) {
+            if (ware.classid == product.classid) {
               ware.items.push(product);
               break;
             }
           }
         }
         that.setData({
-          wares:app.globalData.currentWareList
+          wares: app.globalData.currentWareList
         })
         console.log(app.globalData.currentWareList);
 
       },
-      fail: function(res) {
+      fail: function (res) {
         // fail
         console.log("fail");
         console.log(res);
       },
-      complete: function() {
+      complete: function () {
         // complete
       }
     })
@@ -188,7 +188,7 @@ Page({
       }
 
       this.setData({
-        needLoadShopInfo : true
+        needLoadShopInfo: true
       })
       console.log('currentShopID = ')
       console.log(app.globalData.currentShopID)
@@ -212,7 +212,7 @@ Page({
 
   },
 
-  loadShopInfo : function () {
+  loadShopInfo: function () {
     var that = this
     //获取当前店铺信息
     wx.request({
@@ -228,7 +228,7 @@ Page({
         // success
         console.log("query 请求成功!")
         console.log(res)
-        
+
         app.globalData.currentShop = res.data
         app.globalData.currentShop.logoList = res.data.logo.split("|")
         that.setData({
@@ -245,7 +245,7 @@ Page({
     })
   },
 
-  loadShopItemList : function () {
+  loadShopItemList: function () {
     var that = this
     //获取店铺商品分类
     if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
@@ -338,9 +338,9 @@ Page({
     console.log(this.data.shop)
   },
 
-  onShow : function () {
+  onShow: function () {
     this.data.totalPrice = 0;
-    for(var tmpItem in app.globalData.currentOrder) {
+    for (var tmpItem in app.globalData.currentOrder) {
       this.data.totalPrice += app.globalData.currentOrder[tmpItem].price * app.globalData.currentOrder[tmpItem].orderNum;
     }
 
