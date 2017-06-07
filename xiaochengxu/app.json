@@ -15,8 +15,8 @@
     "pages/appointmentConfirm/appointmentConfirm",
     "pages/restConfirm/restConfirm",
     "pages/appointmentServiceStateManager/index",
-    "pages/appointmentServiceOrderList/index"
-
+    "pages/appointmentServiceOrderList/index",
+    "pages/registerPhone/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
