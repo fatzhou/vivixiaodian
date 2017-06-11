@@ -27,15 +27,21 @@ Page({
         app.globalData.currentShop = shop;
       }
     }
-    wx.navigateTo({
-      // url: '../itemList/itemList'
-      url: '../appointmentList/appointmentList'
-      // success: function (e) {  
-      //   var page = getCurrentPages().pop();  
-      //   if (page == undefined || page == null) return;  
-      //   page.onShow();  
-      // }
-    })
+    if (shop.isMyShop) {
+      wx.navigateTo({
+        url: '../appointmentList/appointmentList',
+      })
+    } else {
+      wx.navigateTo({
+         url: '../itemList/itemList'
+        //url: '../appointmentList/appointmentList'
+        // success: function (e) {  
+        //   var page = getCurrentPages().pop();  
+        //   if (page == undefined || page == null) return;  
+        //   page.onShow();  
+        // }
+      })
+    }
   },
 
 //我的订单
@@ -74,8 +80,8 @@ Page({
           for (var index = 0;index < list.length;index ++) {
             shopInfo = list[index];
             shopInfo.logoList = shopInfo.logo.split("|")
+            shopInfo.isMyShop = (index % 3 == 0)
           }
-
           var pList = [];
           var plistIndex = 0;
 
@@ -84,7 +90,12 @@ Page({
             currentLoadedShopIndex: 0
           })
           console.log(that.data.shopList);
-
+          app.globalData.userInfo = res.data;
+          // if (!app.globalData.userInfo.mobile || app.globalData.userInfo.mobile.length <= 0) {
+          //   wx.redirectTo({
+          //     url: '../registerPhone/index?returnPage=../home/home',
+          //   })
+          // }
           // that.getShopListDetail(that.data.shopIDList);
         },
         fail: function(res) {
