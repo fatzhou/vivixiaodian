@@ -130,7 +130,7 @@ App({
     serverHost: "https://www.wxpuu.com",//"https://www.ingcloud.net",https://www.wxpuu.com,
     userOpenID: null,
     session_key: null,
-    
+    userInfo: {},
     currentShopOpenID: "",
     //"oogLjwhPimfaJqGNLr4Kmb_PbKk0",
     currentShopID: "",

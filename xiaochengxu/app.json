@@ -11,7 +11,6 @@
     "pages/appointmentResult/appointmentResult",
     "pages/appointmentList/appointmentList",
     "pages/appointmentCancelResult/appointmentCancelResult",
-    "pages/registerPhone/index",
     "pages/appointmentConfirm/appointmentConfirm",
     "pages/restConfirm/restConfirm",
     "pages/appointmentServiceStateManager/index",

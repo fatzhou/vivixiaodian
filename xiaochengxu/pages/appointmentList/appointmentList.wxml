@@ -4,69 +4,21 @@
       <view class="shop-layer">
         <view class="weui-panel__bd">
           <!--item1-->
-          <view class="weui-media-box weui-media-box_appmsg">
+          <view wx:for="{{productList}}" class="weui-media-box weui-media-box_appmsg">
             <view class="weui-media-box__hd">
-              <image class="weui-media-box__thumb" src="../res/pic/1.png" alt=""></image>
+              <image class="weui-media-box__thumb" src="{{item.imageList[0]}}" alt="{{item.name}}"></image>
             </view>
             <view class="weui-media-box__bd">
-              <view class="weui-media-box__title">标题一</view>
-
-              <view class="weui-media-box__info"><span><em class="statu statu-default">上班中</em></span>
-
-                <navigator bindtap="appointmentTap" href="javascript:;" class="weui-btn weui-btn_primary">预约</navigator>
+              <view class="weui-media-box__title">{{item.name}}</view>
+              <view class="weui-media-box__info"><span><em class="statu {{item.status==1?'statu-default':'statu-dis'}}">{{item.status==1?'上班中':'休息中'}}</em></span>
+                <view bindtap="appointmentTap" data-item="{{item}}" href="javascript:;" class="weui-btn weui-btn_primary">预约</view>
               </view>
             </view>
           </view>
-          <!--item2-->
-          <view class="weui-media-box weui-media-box_appmsg">
-            <view class="weui-media-box__hd">
-              <image class="weui-media-box__thumb" src="../res/pic/1.png" alt=""></image>
-            </view>
-            <view class="weui-media-box__bd">
-              <view class="weui-media-box__title">标题二</view>
-
-              <view class="weui-media-box__info"><span><em class="statu statu-dis">休息中</em></span>
-
-                <navigator href="javascript:;" class="weui-btn weui-btn_primary weui-btn_disabled">预约
-                </navigator>
-              </view>
-            </view>
-          </view>
-          <!--item3-->
-          <view class="weui-media-box weui-media-box_appmsg">
-            <view class="weui-media-box__hd">
-              <image class="weui-media-box__thumb" src="../res/pic/1.png" alt=""></image>
-            </view>
-            <view class="weui-media-box__bd">
-              <view class="weui-media-box__title">标题三</view>
-
-              <view class="weui-media-box__info"><span><em class="statu statu-dis">休息中</em></span>
-
-                <navigator href="javascript:;" class="weui-btn weui-btn_primary weui-btn_disabled">预约
-                </navigator>
-              </view>
-            </view>
-          </view>
-          <!--item4-->
-          <view class="weui-media-box weui-media-box_appmsg">
-            <view class="weui-media-box__hd">
-              <image class="weui-media-box__thumb" src="../res/pic/1.png" alt=""></image>
-            </view>
-            <view class="weui-media-box__bd">
-              <view class="weui-media-box__title">标题四</view>
-
-              <view class="weui-media-box__info"><span><em class="statu statu-dis">休息中</em></span>
-
-                <navigator href="javascript:;" class="weui-btn weui-btn_primary weui-btn_disabled">预约
-                </navigator>
-              </view>
-            </view>
-          </view>
-
           <view class="weui-media-box__bd">
             <view class="weui-media-box__info">
-              <navigator bindtap="appointmentTap" href="javascript:;" class="weui-btn weui-btn_primary">快速预约
-              </navigator>
+              <view bindtap="appointmentRandomTap" href="javascript:;" class="weui-btn weui-btn_primary">快速预约
+              </view>
             </view>
           </view>
         </view>

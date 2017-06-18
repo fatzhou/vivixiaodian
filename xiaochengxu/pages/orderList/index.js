@@ -4,6 +4,7 @@ Page({
   data: {
     // totalprice: 0,
     // orderno: null,
+    shopid: '',
     currentpage: 1,
     orderList: []
   },
@@ -11,7 +12,9 @@ Page({
   onLoad: function (info) {
     console.log('onLoad')
     console.log(info)
-    
+    this.setData({
+      shopid: info.shopid
+    })
     this.refreshList();
 
     // this.setData({
@@ -28,6 +31,7 @@ Page({
       data: {
                 openid : app.globalData.userOpenID,
                 token : app.globalData.session_key,
+                shopid: that.data.shopid,
                 pageno : startIndex,
                 pagesize : 10,
                 // date: '20170415'

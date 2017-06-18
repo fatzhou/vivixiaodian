@@ -1,2 +1,28 @@
-<!--pages/appointmentConfirm/appointmentConfirm.wxml-->
-<text>pages/appointmentConfirm/appointmentConfirm.wxml</text>
+<!--pages/appointmentResult.wxml-->
+<view class="container yuyue-wrap">
+    <view class="wrap ">
+        <view class="weui-msg">
+            <view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
+            <view class="weui-msg__text-area">
+                <view class="weui-msg__title">预约成功
+                  </view>
+                <view class="weui-msg__desc">
+                    <view>店家已收到你的预约信息，并会尽快安排给你优先理发，请留意短息通知</view>
+                   <ul class="detail">
+                       <li><view>预约号：A201</view></li>
+                       <li><view>预约时间：2016-01-02 13:02:02</view></li>
+                       <li><view>预约理发师：jeffy</view></li>
+                       <li><view>店家电话：1376554122</view></li>
+                       <li><view>店家地址：深大桂庙新村18号</view></li>
+                   </ul>
+                </view>
+            </view>
+            <view class="weui-msg__opr-area">
+                <view class="weui-btn-area">
+                    <a bindtap="tapCancelAppointment" class="weui-btn weui-btn_warn">取消预约</a>
+                    <a bindtap="tapCancel" href="javascript:history.back();" class="weui-btn weui-btn_default">关闭</a>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

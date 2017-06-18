@@ -12,24 +12,23 @@ Page({
     shop: {},
     shopIDList: [],
     shopList: [],
+    defaultLogo: '../res/pic/shopcenter-ban1.jpg',
+    defaultName: '匿名店铺',
+    defaultMobile: '电话保密',
     currentLoadedShopIndex: 0,
     numberOfDataLoadEachTime: 5
   },
   //去看看
-  tapEnterShop: function(shopinfo) {
+  tapEnterShop: function(event) {
     console.log('tapEnterShop')
-    console.log(shopinfo)
-    if (shopinfo && shopinfo.target && shopinfo.target.dataset && shopinfo.target.dataset.shopinfo) {
-      console.log(shopinfo.target.dataset)
-      var shop = shopinfo.target.dataset.shopinfo
-      if(shop.shopid) {
-        app.globalData.currentShopID = shop.shopid;
-        app.globalData.currentShop = shop;
-      }
-    }
+    var index = event.target.dataset.index,
+        shop = this.data.shopList[index];
+    app.globalData.currentShop = shop;
+console.log(shop,'xxxx')
     if (shop.isMyShop) {
+      //存储当前店铺信息
       wx.navigateTo({
-        url: '../appointmentList/appointmentList',
+        url: '../appointmentList/appointmentList?shopid='+shop.shopid,
       })
     } else {
       wx.navigateTo({
@@ -44,16 +43,12 @@ Page({
     }
   },
 
-//我的订单
-  tapCheckOrderList: function() {
-    console.log('go navigation')
+  //我的订单
+  tapCheckOrderList: function(event) {
+    console.log('go navigation');
+    var n = event.target.dataset.index;
     wx.navigateTo({
-      url: '../appointmentResult/appointmentResult',
-      // success: function (e) {  
-      //   var page = getCurrentPages().pop();  
-      //   if (page == undefined || page == null) return;  
-      //   page.onShow();  
-      // }
+      url: '../orderList/index?shopid=' + this.data.shopList[n].shopid
     })
   },
 
@@ -80,11 +75,10 @@ Page({
           for (var index = 0;index < list.length;index ++) {
             shopInfo = list[index];
             shopInfo.logoList = shopInfo.logo.split("|")
-            shopInfo.isMyShop = (index % 3 == 0)
+            shopInfo.isMyShop = (index % 3 == 0);//是否预约店铺
           }
           var pList = [];
           var plistIndex = 0;
-
           that.setData({
             shopList: list,
             currentLoadedShopIndex: 0
