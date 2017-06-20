@@ -25,22 +25,10 @@ Page({
         shop = this.data.shopList[index];
     app.globalData.currentShop = shop;
 console.log(shop,'xxxx')
-    if (shop.isMyShop) {
-      //存储当前店铺信息
-      wx.navigateTo({
-        url: '../appointmentList/appointmentList?shopid='+shop.shopid,
-      })
-    } else {
-      wx.navigateTo({
-         url: '../itemList/itemList'
-        //url: '../appointmentList/appointmentList'
-        // success: function (e) {  
-        //   var page = getCurrentPages().pop();  
-        //   if (page == undefined || page == null) return;  
-        //   page.onShow();  
-        // }
-      })
-    }
+    wx.navigateTo({
+      url: '../enterShop/enterShop?shopid=' + shop.shopid
+    })
+
   },
 
   //我的订单

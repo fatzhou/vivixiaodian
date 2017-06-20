@@ -401,6 +401,7 @@ Page({
         that.getClassList();
     } else {
       console.log("此商铺数据已经加载过");
+      console.log(app.globalData.currentWareList);
       that.setData({
           wares:app.globalData.currentWareList
       });
