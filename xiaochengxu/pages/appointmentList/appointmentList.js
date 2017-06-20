@@ -104,11 +104,12 @@ Page({
           //处理订单
           wx.showModal({
             title: '您已经下过订单',
-            content: '请联系商家取消订单，点击确定查看订单列表',
+            content: '请联系商家取消订单，查看预约详情请点击查看订单',
+            confirmText: '查看订单',
             success: function(d) {
               if(d.confirm) {
                 wx.navigateTo({
-                  url: '../orderList/index?shopid=' + app.globalData.currentShop.shopid
+                  url: '../orderList/index?simple=1&shopid=' + app.globalData.currentShop.shopid
                 });
               }
             }

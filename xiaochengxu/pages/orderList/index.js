@@ -5,22 +5,34 @@ Page({
     // totalprice: 0,
     // orderno: null,
     shopid: '',
+    simple: false,
     currentpage: 1,
     orderList: []
   },
 
   onLoad: function (info) {
-    console.log('onLoad')
-    console.log(info)
     this.setData({
-      shopid: info.shopid
+      shopid: info.shopid,
+      simple: !!info.simple
     })
+    console.log(this.data.simple, 'simple value')
     this.refreshList();
 
     // this.setData({
     //   totalprice: info.totalprice,
     //   orderno: info.orderno
     // })
+  },
+
+  visitDetail: function(e) {
+    var order = e.currentTarget.dataset.order,
+        orderno = order.orderno,
+        totalprice = order.price;
+
+        console.log(order)
+    wx.navigateTo({
+      url: '../orderCompleted/index?orderno='+ orderno+'&totalprice='+ totalprice
+    })
   },
 
   getOrderList : function(startIndex) {

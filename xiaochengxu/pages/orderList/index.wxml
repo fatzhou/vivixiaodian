@@ -10,7 +10,21 @@
                     <view class="weui-form-preview__label">{{order.dateString}}</view>
                 </view>
             </view>
-            <view class="weui-form-preview__bd">
+            <view wx:if="simple" bindtap="visitDetail" data-order="{{order}}" class="weui-form-preview__bd">
+
+                <block wx:for="{{order.detail}}" wx:for-item="detail">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">预约号</view>
+                        <span class="weui-form-preview__value">{{order.orderno}}</span>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">预约理发师</view>
+                        <span class="weui-form-preview__value">{{detail.name}}</span>
+                    </view>
+                </block>
+
+            </view>
+            <view wx:else bindtap="visitDetail" data-order="{{order}}" class="weui-form-preview__bd">
 
                 <block wx:for="{{order.detail}}" wx:for-item="detail">
                     <view class="weui-form-preview__item">
@@ -24,6 +38,7 @@
                     <span class="weui-form-preview__value">商品总额<span>{{order.price}}</span></span>
                 </view>
             </view>
+
         </view>
 
     </block>

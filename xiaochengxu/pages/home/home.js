@@ -48,7 +48,7 @@ console.log(shop,'xxxx')
     console.log('go navigation');
     var n = event.target.dataset.index;
     wx.navigateTo({
-      url: '../orderList/index?shopid=' + this.data.shopList[n].shopid
+      url: '../orderList/index?simple=1&shopid=' + this.data.shopList[n].shopid
     })
   },
 
