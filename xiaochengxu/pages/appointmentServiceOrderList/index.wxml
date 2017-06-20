@@ -1,64 +1,32 @@
-<view class="container dingdan-wrap yuyue-wrap b-wrap">
+<!--我的订单-->
+<view class="container dingdan-wrap">
     <view class="wrap">
-        <view class="weui-form-preview">
-            <view class="weui-form-preview__hd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">预约号</view>
-                    <view class="weui-form-preview__value">A102</view>
-                </view>
-            </view>
-            <view class="weui-form-preview__bd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">下单时间</view>
-                    <view class="weui-form-preview__value">2015-06-12 12:00:25</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">预约理发师</view>
-                    <view class="weui-form-preview__value">petty</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">联系用户</view>
-                    <view class="weui-form-preview__value"><i class="iconfont-dasan-16"></i>拨打</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">用户已等待</view>
-                    <view class="weui-form-preview__value"> <view class="statu sta1">30分钟</view></view>
-                </view>
-            </view>
-            <view class="weui-form-preview__ft">
-                <navigator class="weui-btn weui-btn_primary " href="javascript:" id="">通知Ta到店</navigator>
-            </view>
-        </view>
-        <view class="weui-form-preview">
-            <view class="weui-form-preview__hd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">预约号</view>
-                    <view class="weui-form-preview__value">A102</view>
-                </view>
-            </view>
-            <view class="weui-form-preview__bd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">下单时间</view>
-                    <view class="weui-form-preview__value">2015-06-12 12:00:25</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">预约理发师</view>
-                    <view class="weui-form-preview__value">petty</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">联系用户</view>
-                    <view class="weui-form-preview__value"><i class="iconfont-dasan-16"></i>拨打</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">用户已等待</view>
-                    <view class="weui-form-preview__value"> <view class="statu sta1">30分钟</view></view>
-                </view>
-            </view>
+    <!--循环订单列表-->
+    <block wx:for="{{orderList}}" wx:for-item="order">
 
-            <view class="weui-form-preview__ft">
-                <navigator class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="">已通知</navigator>
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">{{order.dateString}}</view>
+                </view>
+            </view>
+            <view bindtap="visitDetail" data-order="{{order}}" class="weui-form-preview__bd">
+
+                <block wx:for="{{order.detail}}" wx:for-item="detail">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">预约号</view>
+                        <span class="weui-form-preview__value">{{order.orderno}}</span>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">预约理发师</view>
+                        <span class="weui-form-preview__value">{{detail.name}}</span>
+                    </view>
+                </block>
+
             </view>
         </view>
+
+    </block>
+
     </view>
-
 </view>

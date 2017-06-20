@@ -73,15 +73,3 @@
 .dingdan-wrap footer .copyright img {
   height: 13px;
 }
-
-.yuyue-wrap.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item {
-  padding: 5px 15px;
-}
-.yuyue-wrap.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item .weui-form-preview__label {
-  font-size: 12px;
-  color: #999;
-}
-.yuyue-wrap.dingdan-wrap .weui-form-preview .weui-form-preview__bd .weui-form-preview__item span.weui-form-preview__value {
-  font-size: 12px;
-  color: #999;
-}

@@ -101,6 +101,7 @@ Page({
         } 
 
         if(flag) {
+        // if(0) {
           //处理订单
           wx.showModal({
             title: '您已经下过订单',
@@ -109,7 +110,7 @@ Page({
             success: function(d) {
               if(d.confirm) {
                 wx.navigateTo({
-                  url: '../orderList/index?simple=1&shopid=' + app.globalData.currentShop.shopid
+                  url: '../appointmentServiceOrderList/index?shopid=' + app.globalData.currentShop.shopid
                 });
               }
             }
@@ -257,7 +258,7 @@ Page({
       url: app.globalData.serverHost + '/api/shop/prodlist',
       data: {
         openid : app.globalData.userOpenID,
-        shopid : app.globalData.currentShopID
+        shopid : app.globalData.currentShop.shopid
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function(res) {
@@ -336,7 +337,7 @@ Page({
       url: app.globalData.serverHost + '/api/shop/classquery',
       data: {
         openid : app.globalData.userOpenID,
-        shopid : app.globalData.currentShopID
+        shopid : app.globalData.currentShop.shopid
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       //header: {
@@ -403,6 +404,14 @@ Page({
       that.setData({
           wares:app.globalData.currentWareList
       });
+      var productList = [];
+      app.globalData.currentWareList.forEach(function(item) {
+        productList = productList.concat(item.items);
+      })
+      that.setData({
+        productList: productList
+      })
+      console.log(that.data.wares)
     }
 
     this.setData({

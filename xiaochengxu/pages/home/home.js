@@ -46,9 +46,11 @@ console.log(shop,'xxxx')
   //我的订单
   tapCheckOrderList: function(event) {
     console.log('go navigation');
-    var n = event.target.dataset.index;
+    var n = event.target.dataset.index,
+        shop = this.data.shopList[n];
+    app.globalData.currentShop = shop;
     wx.navigateTo({
-      url: '../orderList/index?simple=1&shopid=' + this.data.shopList[n].shopid
+      url: '../appointmentServiceOrderList/index?shopid=' + this.data.shopList[n].shopid
     })
   },
 

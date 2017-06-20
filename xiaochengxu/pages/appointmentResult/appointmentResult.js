@@ -73,22 +73,44 @@ Page({
   },
 
   tapCancelAppointment : function() {
+      var that = this;
       wx.showModal({
         title: '您确定要取消预约吗？',
         content: '点击确认按钮，放弃本次理发',
         success: function(res) {
           if(res.confirm) {
+            console.log(23333)
             //确认取消
-            wx.redirectTo({
-              url: '../appointmentCancelResult/appointmentCancelResult'
+            wx.request({
+                url: app.globalData.serverHost + '/api/user/ordercancel',
+                data: {
+                  openid : app.globalData.userOpenID,
+                  token : app.globalData.session_key,
+                  orderno: that.data.orderno
+                },
+                method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+                success: function(res) {
+                  if(res.data.code) {
+                    wx.showToast({
+                      title: res.data.msg
+                    });
+                    return;
+                  }
+                  wx.redirectTo({
+                    url: '../home/home'
+                  })  
+                }
             })            
+          
           }
         }
       });
   },
 
   tapCancel : function() {
-    wx.navigateBack()
+      wx.navigateTo({
+        url: '../appointmentList/appointmentList'
+      });  
   }    
 
 })
