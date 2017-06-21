@@ -96,7 +96,7 @@ Page({
                     });
                     return;
                   }
-                  wx.redirectTo({
+                  wx.reLaunch({
                     url: '../home/home'
                   })  
                 }
@@ -108,9 +108,7 @@ Page({
   },
 
   tapCancel : function() {
-      wx.navigateTo({
-        url: '../appointmentList/appointmentList'
-      });  
+      wx.navigateBack();  
   }    
 
 })
