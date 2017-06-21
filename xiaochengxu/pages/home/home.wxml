@@ -1,34 +1,34 @@
 <!--首页-->
 <view class="container home-wrap">
-    <view class="wrap">
-        <view class="weui-panel weui-panel_access">
-            <view class="weui-panel__bd">
-                <block wx:for="{{shopList}}">
-                    <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
-                        <view class="weui-media-box__hd">
-                            <image class="weui-media-box__thumb" src="{{item.logoList[0] || defaultLogo}}"></image>
-                        </view>
-                        <view class="weui-media-box__bd">
-                            <view class="weui-media-box__title">{{item.name || defaultName}}</view>
-
-                            <view class="weui-media-box__desc">
-                                <text>{{item.mobile || defaultMobile}}</text>
-                            </view>
-
-                            <view class="weui-media-box__info">
-                                <view bindtap="tapEnterShop" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">去看看</view>
-                            </view>
-
-                            <view class="weui-media-box__info">
-                                <view bindtap="tapCheckOrderList" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">我的订单</view>
-                            </view>
-
-                        </view>
-                    </view>
-                </block>
+  <view class="wrap">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+        <block wx:for="{{shopList}}">
+          <view href="javascript:void(0);" class="weui-media-box weui-media-box_appmsg">
+            <view class="weui-media-box__hd">
+              <image class="weui-media-box__thumb" src="{{item.logoList[0] || defaultLogo}}"></image>
             </view>
+            <view class="weui-media-box__bd">
+              <view class="weui-media-box__title">{{item.name || defaultName}}</view>
 
-        </view>
+              <view class="weui-media-box__desc">
+                <text>{{item.mobile || defaultMobile}}</text>
+              </view>
+
+              <view class="weui-media-box__info">
+                <view bindtap="tapEnterShop" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">去看看</view>
+              </view>
+
+              <view class="weui-media-box__info">
+                <view bindtap="tapCheckOrderList" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">我的订单</view>
+              </view>
+
+            </view>
+          </view>
+        </block>
+      </view>
 
     </view>
+
+  </view>
 </view>
