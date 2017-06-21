@@ -93,7 +93,7 @@ Page({
 
         if(orderlist && orderlist.length) {
           orderlist.forEach(function(item) {
-            if(item.status === 0 || item.status === 1) {
+            if(item.status === 0) {
               flag = true;
               return;
             }

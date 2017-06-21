@@ -54,6 +54,28 @@ Page({
         // success
         console.log(res)
         var orderList = res.data.orderlist || [];
+        orderList = orderList.filter(function(item) {
+          return item.status === 0;
+        });
+        if(!orderList.length) {
+          wx.showModal({
+            'title': '您还没有预约',
+            'content': '点击我要预约按钮，立即预约理发师',
+            'confirmText': '我要预约',
+            success: function(res) {
+              if(res.confirm) {
+                wx.redirectTo({
+                  url: '../appointmentList/appointmentList?shopid=' + app.globalData.currentShop.shopid
+                })
+              } else {
+                wx.redirectTo({
+                  url: '../home/home'
+                })                
+              }
+            }
+          })
+          return;
+        }
         for(var i = 0, len = orderList.length; i < len; i++) {
           if(typeof orderList[i].detail === 'string') {
             orderList[i].detail = JSON.parse(orderList[i].detail);  
