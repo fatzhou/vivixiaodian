@@ -1,5 +1,5 @@
 {
-  "pages": [    
+  "pages": [
     "pages/home/home",
     "pages/itemList/itemList",
     "pages/proview/index",
@@ -16,7 +16,8 @@
     "pages/appointmentServiceStateManager/index",
     "pages/appointmentServiceOrderList/index",
     "pages/registerPhone/index",
-    "pages/enterShop/enterShop"
+    "pages/enterShop/enterShop",
+    "pages/registerEmployee/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

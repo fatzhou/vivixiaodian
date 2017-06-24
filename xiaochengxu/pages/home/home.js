@@ -65,7 +65,7 @@ console.log(shop,'xxxx')
           for (var index = 0;index < list.length;index ++) {
             shopInfo = list[index];
             shopInfo.logoList = shopInfo.logo.split("|")
-            shopInfo.isMyShop = (index % 3 == 0);//是否预约店铺
+            // shopInfo.isMyShop = (index % 3 == 0);//是否预约店铺
           }
           var pList = [];
           var plistIndex = 0;
