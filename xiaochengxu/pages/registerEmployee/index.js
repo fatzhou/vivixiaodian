@@ -92,7 +92,7 @@ Page({
         console.log(tempFilePaths)
 
         that.setData({
-          imagePath: tempFilePaths,
+          imagePath: tempFilePaths[0],
         })
 
       }
@@ -100,6 +100,7 @@ Page({
   },
 
   bindNameInput: function(e) {
+
     this.setData({
       employeeName: e.detail.value
     })
@@ -121,14 +122,8 @@ Page({
   },
 
   confirmRegister: function (e) {
-
-    wx.redirectTo({
-      url: '../appointmentServiceStateManager/index'
-    })
-
-    return;
     var that = this
-
+    
     if (this.data.imagePath.length <= 0) {
       wx.showToast({
         title: '请设置头像',
@@ -161,22 +156,32 @@ Page({
       return;
     }
 
+    //上传头像
     wx.uploadFile({
       url: app.globalData.serverHost + '/api/upload',
       filePath: that.data.imagePath,
       name: 'file',
       formData: {
-        'name': 'test'
+        'name': 'headerImage'
       },
       success: function (res) {
         var data = res.data
         //do something
-      }
-    }),
+        console.log('upload done');
+        console.log(data);
+        //成功的话继续调用商品注册
 
-    wx.redirectTo({
-      url: '../home/home'
+        //注册成功后
+        wx.redirectTo({
+          url: '../appointmentServiceStateManager/index'
+        })
+
+      }
     })
+
+    // wx.redirectTo({
+    //   url: '../home/home'
+    // })
   },
 
 })
