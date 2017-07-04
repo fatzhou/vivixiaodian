@@ -7,6 +7,7 @@ Page({
     employeeName:'',
     employeePhoneNumber: '',
     employeeInviteNumber: '',
+    uploadedImageUrl: ''
   },
 
   onLoad: function (info) {
@@ -160,22 +161,69 @@ Page({
     wx.uploadFile({
       url: app.globalData.serverHost + '/api/upload',
       filePath: that.data.imagePath,
-      name: 'file',
+      name: 'thumbnail',
       formData: {
-        'name': 'headerImage'
+        'name': 'thumbnail'
       },
       success: function (res) {
         var data = res.data
+        var result = JSON.parse(data);
         //do something
         console.log('upload done');
         console.log(data);
-        //成功的话继续调用商品注册
 
-        //注册成功后
-        wx.redirectTo({
-          url: '../appointmentServiceStateManager/index'
-        })
+        if (result.code == 0) {
+          that.setData({
+            uploadedImageUrl: result.url
+          })
 
+          //成功的话继续调用商品注册
+          wx.request({
+            url: app.globalData.serverHost + '/api/shop/dealprod',
+            data: {
+              openid: app.globalData.userOpenID,
+              token: app.globalData.session_key,
+              shopid: that.data.shopid,
+              name: that.data.employeeName,
+              desc: that.data.employeePhoneNumber,
+              image: that.data.uploadedImageUrl,
+              classid: 1,
+              price: 0,
+              status: 0
+            },
+            method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+            // header: {}, // 设置请求的 header
+            success: function (res) {
+
+              console.log('dealprod done');
+              console.log(res);
+
+              if (res.data.code == 0) {
+                //注册成功后
+                wx.redirectTo({
+                  url: '../appointmentServiceStateManager/index'
+                })
+              } else {
+                wx.showToast({
+                  title: res.data.msg,
+                  image: '../../image/xx.png',
+                });
+              }
+            }
+          })
+        } else {
+          wx.showToast({
+            title: result.msg,
+            image: '../../image/xx.png',
+          });
+        }
+
+      },
+      fail: function (res) {
+        wx.showToast({
+          title: '上传图片失败',
+          image: '../../image/xx.png',
+        });
       }
     })
 
@@ -183,5 +231,9 @@ Page({
     //   url: '../home/home'
     // })
   },
+
+  registerEmployee: function() {
+
+  }
 
 })
