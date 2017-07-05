@@ -262,6 +262,7 @@ Page({
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function(res) {
+        console.log("获取到商品列表!");
         // success
         app.globalData.hasLoadAllData = true;
         //获取到商品后,按类别放好,并增加订购属性
@@ -278,7 +279,7 @@ Page({
           //添加到类别中
           for(var j = 0;j < app.globalData.currentWareList.length; j++) {
             ware = app.globalData.currentWareList[j];
-            if(ware.classid == product.classid) {
+            if(ware.classid == product.classid || ware.classid < 0) {
               ware.items.push(product);
               break;
             }
@@ -345,12 +346,20 @@ Page({
       //},
       success: function(res){
         // success
-        console.log("success");
+        console.log("拿到商品分类");
         console.log(res.data);
 
         app.globalData.lastShopOpenID = app.globalData.currentShopOpenID
         app.globalData.lastShopID = app.globalData.currentShopID;
         app.globalData.currentWareList = res.data.classlist;
+
+        //查找不到分类时
+        if (app.globalData.currentWareList.length <= 0) {
+          app.globalData.currentWareList = new Array(1)
+          //给个分类特殊标记
+          app.globalData.currentWareList[0] = {}
+          app.globalData.currentWareList[0].classid = -1;
+        }
         var ware;
         for(var i = 0;i < app.globalData.currentWareList.length; i++) {
           ware = app.globalData.currentWareList[i];
