@@ -9,7 +9,7 @@ Page({
 
   getOrder: function () {
     wx.navigateTo({
-      url: '../restConfirm/restConfirm'
+      url: '../appointmentServiceOrderList/index'
     }) 
   },
 

@@ -3,6 +3,7 @@ var app = getApp()
 Page({
   data: {
     shopid: '',
+    vericode: '0',
     imagePath: '',
     employeeName:'',
     employeePhoneNumber: '',
@@ -11,72 +12,17 @@ Page({
   },
 
   onLoad: function (info) {
-    this.setData({
-      shopid: info.shopid,
-    })
-  },
+    if (info) {
+      this.setData({
+        shopid: info.shopid,
+      })
 
-  visitDetail: function (e) {
-    var order = e.currentTarget.dataset.order,
-      orderno = order.orderno,
-      totalprice = order.price;
-
-    console.log(order)
-    wx.navigateTo({
-      url: '../orderCompleted/index?orderno=' + orderno + '&totalprice=' + totalprice
-    })
-  },
-
-  getOrderList: function (startIndex) {
-    var that = this
-
-    wx.request({
-      url: app.globalData.serverHost + '/api/user/orderquery',
-      data: {
-        openid: app.globalData.userOpenID,
-        token: app.globalData.session_key,
-        shopid: that.data.shopid,
-        pageno: startIndex,
-        pagesize: 10,
-        // date: '20170415'
-      },
-      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-      // header: {}, // 设置请求的 header
-      success: function (res) {
-        // success
-        console.log(res)
-        var orderList = res.data.orderlist || [];
-        for (var i = 0, len = orderList.length; i < len; i++) {
-          if (typeof orderList[i].detail === 'string') {
-            orderList[i].detail = JSON.parse(orderList[i].detail);
-          }
-          orderList[i].dateString = util.formatTimeChinese(new Date(orderList[i].createtime * 1000))
-          console.log(orderList[i].detail)
-        }
-        that.data.currentpage += orderList.length;
-        //刷新数据
-        if (startIndex == 1) {
-          that.data.orderList = orderList;
-        } else {
-          orderList.forEach(function (item) {
-            that.data.orderList.push(item)
-          })
-        }
-        that.setData({
-          orderList: that.data.orderList,
-          currentpage: that.data.currentpage
+      if (info.vericode) {
+        this.setData({
+          vericode: info.vericode
         })
-
-        console.log(orderList)
-
-      },
-      fail: function () {
-        // fail
-      },
-      complete: function () {
-        // complete
       }
-    })
+    }
   },
 
   chooseimage: function () {
@@ -152,6 +98,14 @@ Page({
     if (this.data.employeeInviteNumber.length <= 0) {
       wx.showToast({
         title: '请输入邀请码',
+        image: '../../image/xx.png',
+      });
+      return;
+    }
+
+    if (this.data.vericode != this.data.employeeInviteNumber) {
+      wx.showToast({
+        title: '邀请码不正确',
         image: '../../image/xx.png',
       });
       return;
