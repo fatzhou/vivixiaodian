@@ -21,7 +21,7 @@
                                 </ul>-->
                                 <block wx:if="{{imagePath.length <= 0}}">
                                   <view class="weui-uploader__input-box">
-                                      <input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" bindtap="chooseimage"/>
+                                      <button id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple="" bindtap="chooseimage"/>
                                   </view>
                                 </block>
                                 <block wx:else>
