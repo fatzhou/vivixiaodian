@@ -46,7 +46,7 @@
             <view class="weui-cells">
                 <view class="weui-cell">
                     <view class="weui-cell__bd">
-                        <input class="weui-input" type="number" placeholder="请输入手机号" bindinput="bindPhoneInput"/>
+                        <input class="weui-input" type="text" placeholder="请输入手机号" bindinput="bindPhoneInput"/>
                     </view>
                 </view>
             </view>
@@ -55,7 +55,7 @@
             <view class="weui-cells">
                 <view class="weui-cell">
                     <view class="weui-cell__bd">
-                        <input class="weui-input" type="number" placeholder="请输入邀请码" bindinput="bindInviteNumInput"/>
+                        <input class="weui-input" type="text" placeholder="请输入邀请码" bindinput="bindInviteNumInput"/>
                     </view>
                 </view>
             </view>
