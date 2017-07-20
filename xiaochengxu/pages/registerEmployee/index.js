@@ -136,15 +136,15 @@ Page({
           wx.request({
             url: app.globalData.serverHost + '/api/shop/dealprod',
             data: {
-              openid: app.globalData.userOpenID,
-              token: app.globalData.session_key,
-              shopid: that.data.shopid,
-              name: that.data.employeeName,
-              desc: that.data.employeePhoneNumber,
-              image: that.data.uploadedImageUrl,
+              openid : app.globalData.userOpenID,
+              token  : app.globalData.session_key,
+              shopid : that.data.shopid,
+              name   : that.data.employeeName,
+              desc   : that.data.employeePhoneNumber,
+              image  : that.data.uploadedImageUrl,
               classid: 1,
-              price: 0,
-              status: 0
+              price  : 0,
+              status : 0
             },
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             // header: {}, // 设置请求的 header
@@ -156,8 +156,8 @@ Page({
               if (res.data.code == 0) {
                 //注册成功后
                 wx.redirectTo({
-                  url: '../appointmentServiceStateManager/index?shopid=&employeeName=&uploadedImageUrl=' 
-                  + that.data.shopid  + that.data.employeeName + that.data.uploadedImageUrl
+                  url: '../appointmentServiceStateManager/index?shopid=' + that.data.shopid  
+                  + '&employeeName=' + that.data.employeeName +'&uploadedImageUrl='+ that.data.uploadedImageUrl
                 })
               } else {
                 wx.showToast({

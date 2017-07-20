@@ -6,10 +6,10 @@
 
         <view class="weui-cell">
           <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="{{item.imageList[0]}}" style="width: 50px;height:50px;display: block"></image>
+            <image src="{{uploadedImageUrl}}" style="width: 50px;height:50px;display: block"></image>
           </view>
           <view class="weui-cell__bd">
-            <view>{{item.name}}</view>
+            <view>{{employeeName}}</view>
             <view style="font-size: 13px;color: #888888;">{{item.name}}</view>
           </view>
         </view>
@@ -39,6 +39,6 @@
     </view>
   </view>
   <view class="footer">
-    <navigator url="url" bindtap="getOrder" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">接单</navigator>
+    <button  bindtap="getOrder" class="weui-btn weui-btn_primary" href="javascript:" id="showTooltips">接单</button>
   </view>
 </view>

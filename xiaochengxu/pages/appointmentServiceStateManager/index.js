@@ -6,24 +6,29 @@ Page({
    * 页面的初始数据
    */
   data: {
+    employeeName: '',
+    uploadedImageUrl: ''
 
   },
 
   //点击结单按钮
   getOrder: function () {
+    var that = this;
+    console.log('employeeName:' + that.data.employeeName);
+    console.log('uploadedImageUrl:' + that.data.uploadedImageUrl);    
 
     wx.request({
       url: app.globalData.serverHost + '/api/shop/dealprod',
       data: {
-        openid: app.globalData.userOpenID,
-        token : app.globalData.session_key,
-        shopid: app.globalData.currentShopID,
-        prodid: app.globalData.employeeName,
-        name  : app.globalData.employeeName,
-        desc  : app.globalData.employeeName,
-        price : 0,
-        image : app.globalData.uploadedImageUrl,
-        status: 0
+        openid : app.globalData.userOpenID,
+        token  : app.globalData.session_key,
+        shopid : app.globalData.currentShopID,
+        name   : that.data.employeeName,
+        desc   : that.data.employeeName,
+        image  : that.data.uploadedImageUrl,
+        classid: 1,
+        price  : 0,
+        status : 0
       },
       method: 'POST',
       success: function (res) {
@@ -51,8 +56,15 @@ Page({
    */
   onLoad: function (info) {
     console.log('onLoad12345678');
-    console.log('info'+info);
+    console.log('info' + info);
+    console.log('employeeName:' + info.employeeName);
+    console.log('uploadedImageUrl:' + info.uploadedImageUrl);
     var that = this;
+
+    this.setData({
+      employeeName    : info.employeeName,
+      uploadedImageUrl: info.uploadedImageUrl
+    })
 
     if (info) {
       console.log('!!!!!!!!!!!!!');
