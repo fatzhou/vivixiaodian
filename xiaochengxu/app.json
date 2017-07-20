@@ -1,5 +1,10 @@
 {
   "pages": [
+    
+    
+    "pages/appointmentServiceStateManager/index",
+    
+    
     "pages/home/home",
     "pages/itemList/itemList",
     "pages/proview/index",

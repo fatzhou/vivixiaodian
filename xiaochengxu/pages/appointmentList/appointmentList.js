@@ -333,6 +333,10 @@ Page({
 
   getClassList() {
     var that = this;
+    
+    console.log("app.globalData.userOpenID:" + app.globalData.userOpenID);
+    console.log("app.globalData.currentShop.shopid:" + app.globalData.currentShop.shopid);
+
     //获取商品分类
     wx.request({
       url: app.globalData.serverHost + '/api/shop/classquery',
@@ -384,11 +388,12 @@ Page({
   },
 
   onLoad: function (info) {
-    console.log('onLoad')
-    console.log(info)
+    console.log('onLoad');
+    console.log('info1234'+info);
     var that = this;
 
     if (info) {
+      console.log('!!!!!!!!!!!!!');
       if (info.shopid) {
         app.globalData.currentShopID = info.shopid;
       }

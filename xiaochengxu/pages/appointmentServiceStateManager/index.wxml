@@ -6,11 +6,11 @@
 
         <view class="weui-cell">
           <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
-            <image src="../../../res/img/pic_160.png" style="width: 50px;height:50px;display: block"></image>
+            <image src="{{item.imageList[0]}}" style="width: 50px;height:50px;display: block"></image>
           </view>
           <view class="weui-cell__bd">
-            <view>理发师名称</view>
-            <view style="font-size: 13px;color: #888888;">小铺名称</view>
+            <view>{{item.name}}</view>
+            <view style="font-size: 13px;color: #888888;">{{item.name}}</view>
           </view>
         </view>
       </view>
