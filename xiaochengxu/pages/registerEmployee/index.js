@@ -103,6 +103,7 @@ Page({
       return;
     }
 
+    
     if (this.data.vericode != this.data.employeeInviteNumber) {
       wx.showToast({
         title: '邀请码不正确',
@@ -155,7 +156,8 @@ Page({
               if (res.data.code == 0) {
                 //注册成功后
                 wx.redirectTo({
-                  url: '../appointmentServiceStateManager/index'
+                  url: '../appointmentServiceStateManager/index?shopid=&employeeName=&uploadedImageUrl=' 
+                  + that.data.shopid  + that.data.employeeName + that.data.uploadedImageUrl
                 })
               } else {
                 wx.showToast({
