@@ -22,7 +22,8 @@
     "pages/appointmentServiceOrderList/index",
     "pages/registerPhone/index",
     "pages/enterShop/enterShop",
-    "pages/registerEmployee/index"
+    "pages/registerEmployee/index",
+    "pages/appointTobOrder/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

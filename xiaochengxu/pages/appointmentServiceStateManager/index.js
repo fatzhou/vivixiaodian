@@ -11,7 +11,7 @@ Page({
 
   getOrder: function () {
     wx.navigateTo({
-      url: '../appointmentServiceOrderList/index'
+      url: '../appointTobOrder/index'
     })
   },
 
