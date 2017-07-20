@@ -14,11 +14,11 @@
           </view>
         </view>
       </view>
-      <view class="weui-cells__title">上班状态（默认）</view>
+      <view class="weui-cells__title">上班状态</view>
       <view class="weui-cells weui-cells_radio">
         <view class="weui-cell weui-check__label" for="x11">
           <view class="weui-cell__bd">
-            <view>上班中</view>
+            <view>上班中（默认）</view>
           </view>
           <view class="weui-cell__ft">
             <input type="radio" class="weui-check" name="radio1" id="x11" />

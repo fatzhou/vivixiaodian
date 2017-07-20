@@ -27,7 +27,7 @@ Page({
       console.log('!!!!!!!!!!!!!');
       if (info.shopid) {
         app.globalData.currentShopID = info.shopid;
-        console.log('app.globalData.currentShopID' + app.globalData.currentShopID);
+        console.log('app.globalData.currentShopID::::' + app.globalData.currentShopID);
       }
 
       if (info.shopopenid) {
@@ -71,8 +71,9 @@ Page({
   },
 
   attentShop() {
+    console.log('!!attentShop!!');
     console.log("app.globalData.userOpenID:" + app.globalData.userOpenID);
-    console.log("app.globalData.currentShop.shopid:" + app.globalData.currentShop.shopid);
+    console.log("app.globalData.currentShopID:" + app.globalData.currentShopID);
 
     //同步关注店铺
     wx.request({
@@ -80,7 +81,7 @@ Page({
       data: {
         openid: app.globalData.userOpenID,
         token: app.globalData.session_key,
-        shopid: app.globalData.currentShop.shopid
+        shopid: app.globalData.currentShopID
       },
       method: 'POST', 
       success: function (res) {
@@ -99,15 +100,17 @@ Page({
   },
 
   getClassList() {
+
+    console.log('!!getClassList!!');
     var that = this;
-    console.log("app.globalData.userOpenID:" + app.globalData.userOpenID);
-    console.log("app.globalData.currentShop.shopid:" + app.globalData.currentShop.shopid);
+    console.log("getClassList/app.globalData.userOpenID:" + app.globalData.userOpenID);
+    console.log("getClassList/app.globalData.currentShopID:" + app.globalData.currentShopID);
     //获取商品分类
     wx.request({
       url: app.globalData.serverHost + '/api/shop/classquery',
       data: {
         openid: app.globalData.userOpenID,
-        shopid: app.globalData.currentShop.shopid
+        shopid: app.globalData.currentShopID
       },
       method: 'POST',
 
@@ -116,7 +119,7 @@ Page({
         console.log("拿到商品分类");
         console.log(res.data);
 
-        app.globalData.lastShopOpenID = app.globalData.currentShopOpenID
+        app.globalData.lastShopOpenID = app.globalData.currentShopOpenID;
         app.globalData.lastShopID = app.globalData.currentShopID;
         app.globalData.currentWareList = res.data.classlist;
 
@@ -133,7 +136,7 @@ Page({
           ware.index = i;
           ware.items = [];
         }
-        console.log(app.globalData.currentWareList);
+        console.log("app.globalData.currentWareList = " + app.globalData.currentWareList);
         console.log("app.globalData.currentShopID = " + app.globalData.currentShopID);
         //拿到分类后再获取商品
         that.getProductList();
@@ -151,13 +154,15 @@ Page({
   },
 
   getProductList: function () {
+
+    console.log("getProductList:function");
     var that = this;
     //获取店铺商品列表
     wx.request({
       url: app.globalData.serverHost + '/api/shop/prodlist',
       data: {
         openid: app.globalData.userOpenID,
-        shopid: app.globalData.currentShop.shopid
+        shopid: app.globalData.currentShopID
       },
       method: 'POST', 
       success: function (res) {
