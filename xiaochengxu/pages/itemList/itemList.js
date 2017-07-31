@@ -248,9 +248,9 @@ Page({
   loadShopItemList: function () {
     var that = this
     //获取店铺商品分类
-    if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
-      app.globalData.lastShopID != app.globalData.currentShopID ||
-      !app.globalData.hasLoadAllData) {
+    // if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
+    //   app.globalData.lastShopID != app.globalData.currentShopID ||
+    //   !app.globalData.hasLoadAllData) {
 
       console.log(app.globalData.userOpenID)
       console.log(app.globalData.session_key)
@@ -323,12 +323,12 @@ Page({
           // complete
         }
       })
-    } else {
-      console.log("此商铺数据已经加载过");
-      that.setData({
-        wares: app.globalData.currentWareList
-      })
-    }
+    // } else {
+    //   console.log("此商铺数据已经加载过");
+    //   that.setData({
+    //     wares: app.globalData.currentWareList
+    //   })
+    // }
 
     this.setData({
       shop: app.globalData.currentShop

@@ -4,12 +4,12 @@
         <view class="weui-msg">
             <view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
             <view class="weui-msg__text-area">
-                <view class="weui-msg__title">预约成功
+                <view class="weui-msg__title">{{status==0?'预约成功':'订单已处理'}}
                   </view>
                 <view class="weui-msg__desc">
                     <view>店家已收到你的预约信息，并会尽快安排给你优先理发，请留意短息通知</view>
                    <ul class="detail">
-                       <li><view>预约号：{{orderno}}</view></li>
+                       <li><view>预约号：{{shortNumber}}</view></li>
                        <li><view>预约时间：{{orderInfo.time}}</view></li>
                        <li><view>预约理发师：{{orderInfo.name}}</view></li>
                        <li><view>店家电话：{{shopInfo.mobile}}</view></li>
@@ -19,7 +19,7 @@
             </view>
             <view class="weui-msg__opr-area">
                 <view class="weui-btn-area">
-                    <a bindtap="tapCancelAppointment" class="weui-btn weui-btn_warn">取消预约</a>
+                    <a wx:if="{{status==0}}" bindtap="tapCancelAppointment" class="weui-btn weui-btn_warn">取消预约</a>
                     <a bindtap="tapCancel" href="javascript:history.back();" class="weui-btn weui-btn_default">关闭</a>
                 </view>
             </view>

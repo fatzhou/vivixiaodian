@@ -1,3 +1,5 @@
+//registerEmployee/index
+//员工注册页
 var util = require('../../utils/util.js')
 var app = getApp()
 Page({
@@ -134,7 +136,7 @@ Page({
 
           //成功的话继续调用商品注册
           wx.request({
-            url: app.globalData.serverHost + '/api/shop/dealprod',
+            url: app.globalData.serverHost + '/api/shop/dealemployee',
             data: {
               openid : app.globalData.userOpenID,
               token  : app.globalData.session_key,
@@ -144,7 +146,8 @@ Page({
               image  : that.data.uploadedImageUrl,
               classid: 1,
               price  : 0,
-              status : 0
+              status : 0,
+              dealuserid: app.globalData.userOpenID
             },
             method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
             // header: {}, // 设置请求的 header
@@ -156,8 +159,13 @@ Page({
               if (res.data.code == 0) {
                 //注册成功后
                 wx.redirectTo({
-                  url: '../appointmentServiceStateManager/index?shopid=' + that.data.shopid  
-                  + '&employeeName=' + that.data.employeeName +'&uploadedImageUrl='+ that.data.uploadedImageUrl
+                  url: '../appointmentServiceStateManager/index?shopid=' 
+                  + that.data.shopid  
+                  + '&employeeName=' 
+                  + that.data.employeeName 
+                  + '&uploadedImageUrl='+ that.data.uploadedImageUrl
+                  + 'status=0'
+                  + 'desc=' + that.data.employeePhoneNumber
                 })
               } else {
                 wx.showToast({
@@ -176,6 +184,7 @@ Page({
 
       },
       fail: function (res) {
+        console.log(res);
         wx.showToast({
           title: '上传图片失败',
           image: '../../image/xx.png',

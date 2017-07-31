@@ -137,7 +137,6 @@ App({
     //"7086b7f20b80e980fd519770c98629125fe3641b",
     lastShopOpenID: "",
     lasrShopID: "",
-    userInfo:null,
     jsonData: '{"shopList":[{"name":"我的小铺", \
                              "info":"货真价实,童叟无欺", \
                              "address":"世界的尽头", \

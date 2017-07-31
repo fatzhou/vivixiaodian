@@ -14,11 +14,45 @@ Page({
   },
 
   getPhone: function (e) {
-    this.setData({
-      selected: true,
-      selected1: false,
+
+    var that = this
+
+    wx.request({
+      url: app.globalData.serverHost + '/api/sms/smssend',
+      data: {
+        openid: app.globalData.userOpenID,
+        token: '1212wxpuu34',
+        mobile: that.data.mobile,
+        type: 0,
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      success: function (res) {
+        console.log('验证码请求完成')
+        console.log(res);
+
+        if (res.data.code == 0) {
+
+          that.setData({
+            selected: true,
+            selected1: false,
+          });
+          countDown(that);
+
+          wx.showToast({
+            title: '验证码已发送',
+          })
+        } else {
+          wx.showToast({
+            title: '验证码发送失败',
+          })
+        }
+      },
+      fail: function (res) {
+        console.log('验证码请求失败')
+        console.log(res);
+      }
     });
-    countDown(this);
+
   },
 
   bindkeyinput: function(e) {
@@ -30,6 +64,33 @@ Page({
   inputVerifyCode: function(e) {
     this.setData({
       verifyCode: e.detail.value
+    })
+  },
+
+  checkVerCode: function (openid, token, mobile, vcode, callback) {
+    var data = {
+      openid: openid,
+        token: token,
+          mobile: mobile,
+            vcode: vcode
+    }
+    console.log('验证码报文')
+    console.log(data)
+
+    wx.request({
+      url: app.globalData.serverHost + '/api/sms/smscheck',
+      data: {
+        openid: openid,
+        token: token,
+        mobile: mobile,
+        vcode: vcode
+      },
+      method: 'POST',
+      success: function (res) {
+        console.log('验证码验证')
+        console.log(res)
+        callback && callback(res);
+      }
     })
   },
 
@@ -75,38 +136,62 @@ Page({
     console.log(this.data.mobile, this.data.verifyCode)
     if(!/^1[\d]{10}$/.test(this.data.mobile)) {
       wx.showToast({
-        content: '手机号码输入错误'
+        title: '手机号码输入错误',
+        image: '../../image/xx.png'
        });
       return;
     } else if(!this.data.verifyCode) {
       wx.showToast({
-        content: '请输入手机号码收到的短信验证码'
+        title: '请输入手机号码收到的短信验证码',
+        image: '../../image/xx.png',
        });
       return;
     }
     var that = this;
-    //更新用户手机号
-    this.updateUser(app.globalData.userOpenID, app.globalData.session_key, that.data.mobile, function(data) {
-      if(data.data.code) {
+
+    //验证验证码
+    this.checkVerCode(app.globalData.userOpenID, app.globalData.session_key, that.data.mobile, that.data.verifyCode, function (data) {
+      if (data.data.code) {
         wx.showToast({
-          content: '用户电话号码更新失败'
-         });
+          title: '验证码不正确',
+          image: '../../image/xx.png'
+        });
         return;
       }
-      that.orderService(function(res) {
-        var d = res.data;
-        // if(d.code) {
-        //   wx.showModal({
-        //     title: '预约失败',
-        //     content: d.msg
-        //    });
-        //   return;
-        // }
-        wx.navigateTo({
-          url: '../appointmentResult/appointmentResult?orderno=' + d.orderno
+
+      //更新用户手机号
+      that.updateUser(app.globalData.userOpenID, app.globalData.session_key, that.data.mobile, function (data) {
+        if (data.data.code) {
+          wx.showToast({
+            title: '用户电话号码更新失败',
+            image: '../../image/xx.png'
+          });
+          return;
+        }
+        that.orderService(function (res) {
+          var d = res.data;
+          if(d.code) {
+            //预约失败
+            wx.showToast({
+              title: d.msg,
+              image: '../../image/xx.png',
+              duration: 2000,
+              complete: function (res) {
+                setTimeout(function () {
+                  wx.navigateBack()
+                }, 1000);
+              }
+             });
+            return;
+          }
+          wx.navigateTo({
+            url: '../appointmentResult/appointmentResult?orderno=' + d.orderno
+            + '&status=0'
+          })
         })
-      })
-    });
+      });
+      
+    })
   },
 
   /**

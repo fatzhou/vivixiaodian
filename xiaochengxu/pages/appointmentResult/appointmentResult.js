@@ -4,7 +4,9 @@ Page({
   data:{
     orderno: '',
     shopInfo: '',
-    orderInfo: {}
+    status: 1,
+    orderInfo: {},
+    shortNumber: ''
   },
   transformTime: function(st) {
     var time = new Date(st),
@@ -27,8 +29,11 @@ Page({
     })
     // 页面初始化 options为页面跳转所带来的参数
     // this.data.orderno = options.orderno;
+    var shortNumber = options.orderno.substring(options.orderno.length - 4)
     this.setData({
-      orderno: options.orderno
+      orderno: options.orderno,
+      status: options.status,
+      shortNumber: shortNumber
     })
     //查询订单信息
     wx.request({

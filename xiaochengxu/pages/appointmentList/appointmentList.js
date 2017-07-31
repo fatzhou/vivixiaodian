@@ -49,6 +49,7 @@ Page({
         //转至下单结果页
         wx.navigateTo({
           url: '../appointmentResult/appointmentResult?orderno='+res.data.orderno
+          +'&status=0'
         });     
       });
     } else {
@@ -93,7 +94,7 @@ Page({
 
         if(orderlist && orderlist.length) {
           orderlist.forEach(function(item) {
-            if(item.status === 0) {
+            if(item.status == 0) {
               flag = true;
               return;
             }
@@ -263,6 +264,7 @@ Page({
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function(res) {
         console.log("获取到商品列表!");
+        console.log(res);
         // success
         app.globalData.hasLoadAllData = true;
         //获取到商品后,按类别放好,并增加订购属性
@@ -274,7 +276,8 @@ Page({
           product.orderNum = 0;
           product.index = i;
           console.log(new Date(Date.now()).getHours())
-          product.status = new Date(Date.now()).getHours() >= 9 && new Date(Date.now()).getHours() <= 21 ? 1 : 2;
+          //0上班,1下班 (后台定义)
+          product.status = (new Date(Date.now()).getHours() >= 9 && new Date(Date.now()).getHours() <= 21) && product.status == 0 ? 0 : 1;
           product.imageList = product.image.split("|");
           //添加到类别中
           for(var j = 0;j < app.globalData.currentWareList.length; j++) {
@@ -404,30 +407,30 @@ Page({
     }
 
     //获取店铺商品分类
-    if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
-        app.globalData.lastShopID != app.globalData.currentShopID ||
-        !app.globalData.hasLoadAllData) {
+    // if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
+    //     app.globalData.lastShopID != app.globalData.currentShopID ||
+    //     !app.globalData.hasLoadAllData) {
 
         that.attentShop();
 
         app.globalData.hasLoadAllData = false;
 
         that.getClassList();
-    } else {
-      console.log("此商铺数据已经加载过");
-      console.log(app.globalData.currentWareList);
-      that.setData({
-          wares:app.globalData.currentWareList
-      });
-      var productList = [];
-      app.globalData.currentWareList.forEach(function(item) {
-        productList = productList.concat(item.items);
-      })
-      that.setData({
-        productList: productList
-      })
-      console.log(that.data.wares)
-    }
+    // } else {
+    //   console.log("此商铺数据已经加载过");
+    //   console.log(app.globalData.currentWareList);
+    //   that.setData({
+    //       wares:app.globalData.currentWareList
+    //   });
+    //   var productList = [];
+    //   app.globalData.currentWareList.forEach(function(item) {
+    //     productList = productList.concat(item.items);
+    //   })
+    //   that.setData({
+    //     productList: productList
+    //   })
+    //   console.log(that.data.wares)
+    // }
 
     this.setData({
       shop: app.globalData.currentShop

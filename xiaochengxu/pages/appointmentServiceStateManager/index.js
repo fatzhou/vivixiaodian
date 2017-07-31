@@ -6,49 +6,20 @@ Page({
    * 页面的初始数据
    */
   data: {
+    shopid: '',
     employeeName: '',
-    uploadedImageUrl: ''
-
+    uploadedImageUrl: '',
+    descr: '',
+    prodid: '',
+    status: 0
   },
 
   //点击结单按钮
   getOrder: function () {
-    var that = this;
-    console.log('employeeName:' + that.data.employeeName);
-    console.log('uploadedImageUrl:' + that.data.uploadedImageUrl);    
-
-    wx.request({
-      url: app.globalData.serverHost + '/api/shop/dealprod',
-      data: {
-        openid : app.globalData.userOpenID,
-        token  : app.globalData.session_key,
-        shopid : app.globalData.currentShopID,
-        name   : that.data.employeeName,
-        desc   : that.data.employeeName,
-        image  : that.data.uploadedImageUrl,
-        classid: 1,
-        price  : 0,
-        status : 0
-      },
-      method: 'POST',
-      success: function (res) {
-        // success
-        console.log("attent 请求成功!")
-        console.log(res)
-        wx.navigateTo({
-          url: '../appointTobOrder/index'
-        })        
-      },
-      fail: function () {
-        // fail
-        console.log("attent 请求失败!")
-      },
-      complete: function () {
-        // complete
-      }
-    });    
-
-
+    wx.navigateTo({
+      url: '../appointTobOrder/index?shopid=' + this.data.shopid
+      + '&prodid=' + this.data.prodid
+    })
   },
 
   /**
@@ -61,12 +32,17 @@ Page({
     console.log('uploadedImageUrl:' + info.uploadedImageUrl);
     var that = this;
 
-    this.setData({
-      employeeName    : info.employeeName,
-      uploadedImageUrl: info.uploadedImageUrl
-    })
-
     if (info) {
+
+      this.setData({
+        shopid: info.shopid,
+        employeeName: info.employeeName,
+        uploadedImageUrl: info.uploadedImageUrl,
+        descr: info.descr,
+        prodid: info.prodid,
+        status: info.status
+      })
+
       console.log('!!!!!!!!!!!!!');
       if (info.shopid) {
         app.globalData.currentShopID = info.shopid;
@@ -77,181 +53,87 @@ Page({
         app.globalData.currentShopOpenID = info.shopopenid;
         console.log('app.globalData.currentShopOpenID' + app.globalData.currentShopOpenID);
       }
+
+      this.loadShopInfo();
+
     }
-
-    //获取店铺商品分类
-    if (app.globalData.currentShopOpenID != app.globalData.lastShopOpenID ||
-      app.globalData.lastShopID != app.globalData.currentShopID ||
-      !app.globalData.hasLoadAllData) {
-
-      console.log('!attentShop!');
-      that.attentShop();
-
-      app.globalData.hasLoadAllData = false;
-
-      console.log('!getClassList!');
-      that.getClassList();
-    } else {
-      console.log("此商铺数据已经加载过");
-      console.log(app.globalData.currentWareList);
-      that.setData({
-        wares: app.globalData.currentWareList
-      });
-      var productList = [];
-      app.globalData.currentWareList.forEach(function (item) {
-        productList = productList.concat(item.items);
-      })
-      that.setData({
-        productList: productList
-      })
-      console.log(that.data.wares)
-    }
-
-    this.setData({
-      shop: app.globalData.currentShop
-    })
-
   },
 
-  attentShop() {
-    console.log('!!attentShop!!');
-    console.log("app.globalData.userOpenID:" + app.globalData.userOpenID);
-    console.log("app.globalData.currentShopID:" + app.globalData.currentShopID);
-
-    //同步关注店铺
+  changeStatus: function (event) {
+    var that = this
+    console.log(event)
+    console.log('prodid = ' + that.data.prodid)
+    console.log('isinwork' + event.currentTarget.dataset.isinwork)
     wx.request({
-      url: app.globalData.serverHost + '/api/user/attent',
+      url: app.globalData.serverHost + '/api/shop/dealemployee',
+      data: {
+        prodid: that.data.prodid,
+        openid: app.globalData.userOpenID,
+        token: app.globalData.session_key,
+        shopid: that.data.shopid,
+        name: that.data.employeeName,
+        desc: that.data.descr,
+        image: that.data.uploadedImageUrl,
+        classid: 1,
+        price: 0,
+        status: event.currentTarget.dataset.isinwork,
+        dealuserid: app.globalData.userOpenID
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+
+        console.log('dealprod done');
+        console.log(res);
+
+        if (res.data.code == 0) {
+          //注册成功后
+          that.setData ({
+            status: event.currentTarget.dataset.isinwork
+          })
+        } else {
+          wx.showToast({
+            title: res.data.msg,
+            image: '../../image/xx.png',
+          });
+        }
+      }
+    })
+  },
+
+  loadShopInfo: function () {
+    var that = this
+    //获取当前店铺信息
+    wx.request({
+      url: app.globalData.serverHost + '/api/shop/query',
       data: {
         openid: app.globalData.userOpenID,
         token: app.globalData.session_key,
         shopid: app.globalData.currentShopID
       },
-      method: 'POST', 
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
       success: function (res) {
         // success
-        console.log("attent 请求成功!")
+        console.log("query 请求成功!")
         console.log(res)
+
+        app.globalData.currentShop = res.data
+        app.globalData.currentShop.logoList = res.data.logo.split("|")
+        that.setData({
+          shop: app.globalData.currentShop
+        })
       },
       fail: function () {
         // fail
-        console.log("attent 请求失败!")
+        console.log("query 请求失败!")
       },
       complete: function () {
         // complete
       }
-    });
+    })
   },
-
-  getClassList() {
-
-    console.log('!!getClassList!!');
-    var that = this;
-    console.log("getClassList/app.globalData.userOpenID:" + app.globalData.userOpenID);
-    console.log("getClassList/app.globalData.currentShopID:" + app.globalData.currentShopID);
-    //获取商品分类
-    wx.request({
-      url: app.globalData.serverHost + '/api/shop/classquery',
-      data: {
-        openid: app.globalData.userOpenID,
-        shopid: app.globalData.currentShopID
-      },
-      method: 'POST',
-
-      success: function (res) {
-        // success
-        console.log("拿到商品分类");
-        console.log(res.data);
-
-        app.globalData.lastShopOpenID = app.globalData.currentShopOpenID;
-        app.globalData.lastShopID = app.globalData.currentShopID;
-        app.globalData.currentWareList = res.data.classlist;
-
-        //查找不到分类时
-        if (app.globalData.currentWareList.length <= 0) {
-          app.globalData.currentWareList = new Array(1)
-          //给个分类特殊标记
-          app.globalData.currentWareList[0] = {}
-          app.globalData.currentWareList[0].classid = -1;
-        }
-        var ware;
-        for (var i = 0; i < app.globalData.currentWareList.length; i++) {
-          ware = app.globalData.currentWareList[i];
-          ware.index = i;
-          ware.items = [];
-        }
-        console.log("app.globalData.currentWareList = " + app.globalData.currentWareList);
-        console.log("app.globalData.currentShopID = " + app.globalData.currentShopID);
-        //拿到分类后再获取商品
-        that.getProductList();
-
-      },
-      fail: function (res) {
-        // fail
-        console.log("fail");
-        console.log(res);
-      },
-      complete: function () {
-        // complete
-      }
-    });
-  },
-
-  getProductList: function () {
-
-    console.log("getProductList:function");
-    var that = this;
-    //获取店铺商品列表
-    wx.request({
-      url: app.globalData.serverHost + '/api/shop/prodlist',
-      data: {
-        openid: app.globalData.userOpenID,
-        shopid: app.globalData.currentShopID
-      },
-      method: 'POST', 
-      success: function (res) {
-        console.log("获取到商品列表!");
-        // success
-        app.globalData.hasLoadAllData = true;
-        //获取到商品后,按类别放好,并增加订购属性
-        var ware;
-        var product;
-
-        for (var i = 0; i < res.data.prodlist.length; i++) {
-          product = res.data.prodlist[i];
-          product.orderNum = 0;
-          product.index = i;
-          console.log(new Date(Date.now()).getHours())
-          product.status = new Date(Date.now()).getHours() >= 9 && new Date(Date.now()).getHours() <= 21 ? 1 : 2;
-          product.imageList = product.image.split("|");
-          //添加到类别中
-          for (var j = 0; j < app.globalData.currentWareList.length; j++) {
-            ware = app.globalData.currentWareList[j];
-            if (ware.classid == product.classid || ware.classid < 0) {
-              ware.items.push(product);
-              break;
-            }
-          }
-        }
-        that.setData({
-          wares: app.globalData.currentWareList
-        });
-
-        that.setData({
-          productList: res.data.prodlist
-        });
-        console.log(that.data.productList)
-      },
-      fail: function (res) {
-        // fail
-        console.log("fail");
-        console.log(res);
-      },
-      complete: function () {
-        // complete
-      }
-    });
-  },
-
+  
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

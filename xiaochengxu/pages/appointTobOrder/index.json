@@ -1,1 +1,4 @@
-{}
+{
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "客户预约列表"
+}

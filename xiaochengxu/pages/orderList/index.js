@@ -59,6 +59,7 @@ Page({
             orderList[i].detail = JSON.parse(orderList[i].detail);  
           }
           orderList[i].dateString = util.formatTimeChinese(new Date(orderList[i].createtime * 1000))
+          orderList[i].shortNumber = orderList[i].orderno.substring(orderList[i].orderno.length - 4)
           console.log(orderList[i].detail)
         }
         that.data.currentpage += orderList.length;
@@ -82,7 +83,8 @@ Page({
         // fail
       },
       complete: function() {
-        // complete
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh() //停止下拉刷新
       }
     })
   },
@@ -101,10 +103,16 @@ Page({
   },
 
   onPullDownRefresh: function () {
+
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
     this.refreshList()
   },
 
   onReachBottom: function () {
+
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+
     this.loadMoreList()
   }
 

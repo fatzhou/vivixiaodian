@@ -10,27 +10,25 @@
           </view>
           <view class="weui-cell__bd">
             <view>{{employeeName}}</view>
-            <view style="font-size: 13px;color: #888888;">{{item.name}}</view>
           </view>
         </view>
       </view>
       <view class="weui-cells__title">上班状态</view>
       <view class="weui-cells weui-cells_radio">
-        <view class="weui-cell weui-check__label" for="x11">
+        <view class="weui-cell weui-check__label" for="x11" catchtap="changeStatus" data-isinwork="{{0}}">
           <view class="weui-cell__bd">
             <view>上班中（默认）</view>
           </view>
-          <view class="weui-cell__ft">
+          <view wx:if="{{status==0}}" class="weui-cell__ft">
             <input type="radio" class="weui-check" name="radio1" id="x11" />
             <view class="weui-icon-checked"></view>
           </view>
         </view>
-        <view class="weui-cell weui-check__label" for="x12">
-
+        <view class="weui-cell weui-check__label" for="x12" catchtap="changeStatus" data-isinwork="{{1}}">
           <view class="weui-cell__bd">
             <view>休息中</view>
           </view>
-          <view class="weui-cell__ft">
+          <view wx:if="{{status==1}}" class="weui-cell__ft">
             <input type="radio" name="radio1" class="weui-check" id="x12" checked="checked" />
             <view class="weui-icon-checked"></view>
           </view>
