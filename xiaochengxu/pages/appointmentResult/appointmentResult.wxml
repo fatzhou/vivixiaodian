@@ -4,7 +4,7 @@
         <view class="weui-msg">
             <view class="weui-msg__icon-area"><i class="weui-icon-success weui-icon_msg"></i></view>
             <view class="weui-msg__text-area">
-                <view class="weui-msg__title">{{status==0?'预约成功':'订单已处理'}}
+                <view class="weui-msg__title">{{dealStr}}
                   </view>
                 <view class="weui-msg__desc">
                     <view>店家已收到你的预约信息，并会尽快安排给你优先理发，请留意短息通知</view>

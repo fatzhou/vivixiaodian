@@ -16,11 +16,11 @@
               </view>
 
               <view class="weui-media-box__info">
-                <view bindtap="tapEnterShop" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">去看看</view>
+                <view bindtap="tapEnterShop" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">预约理发</view>
               </view>
 
               <view class="weui-media-box__info">
-                <view bindtap="tapCheckOrderList" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">我的订单</view>
+                <view bindtap="tapCheckOrderList" data-index="{{index}}" class="weui-btn weui-btn_plain-primary">我的预约</view>
               </view>
 
             </view>

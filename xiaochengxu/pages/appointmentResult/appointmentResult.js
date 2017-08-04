@@ -6,7 +6,8 @@ Page({
     shopInfo: '',
     status: 1,
     orderInfo: {},
-    shortNumber: ''
+    shortNumber: '',
+    dealStr: '已处理'
   },
   transformTime: function(st) {
     var time = new Date(st),
@@ -21,19 +22,41 @@ Page({
   },
   onLoad:function(options){
     var that = this;
+    // 页面初始化 options为页面跳转所带来的参数
+    // this.data.orderno = options.orderno;
+    var shortNumber = options.orderno.substring(options.orderno.length - 4)
+    var dealStr = '已处理'
+    var status;
+    if (typeof options.status == 'string') {
+      status = parseInt(options.status)
+    } else {
+      status = options.status
+    }
+    switch (status) {
+      case 0:
+        dealStr = '预约成功'
+        break;
+      case 1:
+        dealStr = '已付款'
+        break;
+      case 2:
+        dealStr = '已取消'
+        break;
+      case 3:
+        dealStr = '已处理'
+        break;
+      default:
+        break;
+    }
     this.setData({
+      orderno: options.orderno,
+      status: options.status,
+      shortNumber: shortNumber,
+      dealStr: dealStr,
       shopInfo: {
         mobile: app.globalData.currentShop.mobile,
         addr: app.globalData.currentShop.addr
       }
-    })
-    // 页面初始化 options为页面跳转所带来的参数
-    // this.data.orderno = options.orderno;
-    var shortNumber = options.orderno.substring(options.orderno.length - 4)
-    this.setData({
-      orderno: options.orderno,
-      status: options.status,
-      shortNumber: shortNumber
     })
     //查询订单信息
     wx.request({

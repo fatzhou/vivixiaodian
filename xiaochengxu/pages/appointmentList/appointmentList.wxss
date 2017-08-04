@@ -1,4 +1,9 @@
 /*shop-wrap*/
+.shop-wrap-bottomgap {
+  width: 100%;
+  padding-bottom: 50px;
+}
+
 .shop-wrap .shop-layer {
   position: relative;
 }

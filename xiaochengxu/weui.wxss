@@ -231,6 +231,11 @@ a {
   color: rgba(0, 0, 0, 0.6);
   background-color: #DEDEDE;
 }
+.weui-btn_empty {
+  border: 0px solid rgba(0, 0, 0, 0.0);
+  color: rgba(0, 0, 0, 0.0);
+  background-color: rgba(0, 0, 0, 0.0);
+}
 .weui-btn_primary {
   background-color: #1AAD19;
 }
@@ -582,6 +587,36 @@ input.weui-btn_plain-default {
   position: relative;
   background-color: #FFFFFF;
 }
+
+.weui-form-preview-disable:before {
+  content: " ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 1px;
+  border-top: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 0;
+          transform-origin: 0 0;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+.weui-form-preview-disable:after {
+  content: " ";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 1px;
+  border-bottom: 1px solid #D9D9D9;
+  color: #D9D9D9;
+  -webkit-transform-origin: 0 100%;
+          transform-origin: 0 100%;
+  -webkit-transform: scaleY(0.5);
+          transform: scaleY(0.5);
+}
+
 .weui-form-preview:before {
   content: " ";
   position: absolute;
@@ -1422,6 +1457,14 @@ a.weui-media-box:active {
   -webkit-flex: 1;
           flex: 1;
   min-width: 0;
+}
+.weui-media-box__bd_fix_bottom {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1;
+          flex: 1;
+  width: 100%;
+  position: fixed;
+  bottom: 0rpx;
 }
 .weui-media-box_small-appmsg {
   padding: 0;

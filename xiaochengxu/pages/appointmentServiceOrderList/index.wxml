@@ -4,7 +4,8 @@
     <!--循环订单列表-->
     <block wx:for="{{orderList}}" wx:for-item="order">
 
-        <view class="weui-form-preview">
+        <!-- <view class="{{order.status==0?'weui-form-preview' : 'weui-form-preview-disable'}}"> -->
+        <view class="weui-form-preview" style="background-color: {{order.status==0?'#FFFFFF' : '#eeeeee'}};">
             <view class="weui-form-preview__hd">
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">{{order.dateString}}</view>

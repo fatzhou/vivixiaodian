@@ -1,4 +1,4 @@
-//index.js
+//店铺预约列表 (商品列表)
 //获取应用实例
 var app = getApp()
 Page({
@@ -11,6 +11,7 @@ Page({
     currentType: 0,
     shop: {},
     wares: {},
+    isOnWork: false,
     isShowItemInfo: false,
     showItem: {},
     showWareIndex: 0,
@@ -270,6 +271,7 @@ Page({
         //获取到商品后,按类别放好,并增加订购属性
         var ware;
         var product;
+        var isOnWork = (new Date(Date.now()).getHours() >= 9 && new Date(Date.now()).getHours() <= 21)
 
         for(var i = 0; i < res.data.prodlist.length; i++) {
           product = res.data.prodlist[i];
@@ -277,7 +279,7 @@ Page({
           product.index = i;
           console.log(new Date(Date.now()).getHours())
           //0上班,1下班 (后台定义)
-          product.status = (new Date(Date.now()).getHours() >= 9 && new Date(Date.now()).getHours() <= 21) && product.status == 0 ? 0 : 1;
+          product.status = isOnWork && product.status == 0 ? 0 : 1;
           product.imageList = product.image.split("|");
           //添加到类别中
           for(var j = 0;j < app.globalData.currentWareList.length; j++) {
@@ -289,12 +291,11 @@ Page({
           }
         }
         that.setData({
-          wares: app.globalData.currentWareList
-        });
-
-        that.setData({
+          isOnWork: isOnWork,
+          wares: app.globalData.currentWareList,
           productList: res.data.prodlist
         });
+
         console.log(that.data.productList)
       },
       fail: function(res) {
@@ -434,6 +435,10 @@ Page({
 
     this.setData({
       shop: app.globalData.currentShop
+    })
+
+    wx.setNavigationBarTitle({
+      title: app.globalData.currentShop.name
     })
   },
 
