@@ -21,7 +21,7 @@ Page({
             console.log("查询用户与此店铺的关系")
             console.log(res.data);
             //若是员工
-            if (res.data.ident != 1) {
+            if (res.data.ident == 1) {
               var url = '../appointmentServiceStateManager/index'
               var connectStr = '?'
 
