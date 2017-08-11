@@ -1,6 +1,6 @@
 <view class="container yuyue-wrap">
   <view class="wrap">
-    <view class="{{item.status==0?'shop-wrap-bottomgap':'shop-wrap'}}">
+    <view class="shop-wrap-bottomgap">
       <view class="shop-layer">
         <view class="weui-panel__bd">
           <!--item1-->
@@ -29,8 +29,8 @@
 
     <view class="weui-media-box__bd_fix_bottom">
       <view class="weui-media-box__info">
-        <view wx:if="{{isOnWork}}" bindtap="appointmentRandomTap" href="javascript:;" class="weui-btn weui-btn_primary">快速预约
-        </view>
+        <button bindtap="appointmentRandomTap" class="weui-btn weui-btn_primary" disabled="{{isOnWork?false:true}}">{{isOnWork ? '快速预约' : '预约时间9:00~21:00'}}
+        </button>
       </view>
     </view>
 

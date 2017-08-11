@@ -8,19 +8,19 @@
         <view class="weui-form-preview" style="background-color: {{order.status==0?'#FFFFFF' : '#eeeeee'}};">
             <view class="weui-form-preview__hd">
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">{{order.dateString}}</view>
+                    <view class="weui-form-preview__label" style="color:{{order.status==0?'#333' : '#bbbbbb'}};">{{order.dateString}}</view>
                 </view>
             </view>
             <view bindtap="visitDetail" data-order="{{order}}" class="weui-form-preview__bd">
 
                 <block wx:for="{{order.detail}}" wx:for-item="detail">
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">预约号</view>
-                        <span class="weui-form-preview__value">{{order.shortNumber}}</span>
+                        <view class="weui-form-preview__label" style="color:{{order.status==0?'#333' : '#bbbbbb'}};">预约号</view>
+                        <span class="weui-form-preview__value" style="color:{{order.status==0?'#999' : '#bbbbbb'}};">{{order.shortNumber}}</span>
                     </view>
                     <view class="weui-form-preview__item">
-                        <view class="weui-form-preview__label">预约理发师</view>
-                        <span class="weui-form-preview__value">{{detail.name}}</span>
+                        <view class="weui-form-preview__label" style="color:{{order.status==0?'#333' : '#bbbbbb'}};">预约理发师</view>
+                        <span class="weui-form-preview__value" style="color:{{order.status==0?'#999' : '#bbbbbb'}};">{{detail.name}}</span>
                     </view>
                 </block>
 

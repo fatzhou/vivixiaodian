@@ -1,43 +1,50 @@
-<view class="container dingdan-wrap yuyue-wrap b-wrap">
-    <view class="wrap">
-    <!--循环订单列表-->
-    <block wx:for="{{orderList}}" wx:for-item="order">
-        <view class="weui-form-preview">
-            <view class="weui-form-preview__hd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">预约号</view>
-                    <view class="weui-form-preview__value">{{order.shortNumber}}</view>
-                </view>
-            </view>
-            <view class="weui-form-preview__bd">
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">下单时间</view>
-                    <view class="weui-form-preview__value">{{order.dateString}}</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">预约理发师</view>
-                    <view class="weui-form-preview__value">{{order.detail[0].name}}</view>
-                </view>
-                <view class="weui-form-preview__item" bindtap="callCustomer" data-mobile="{{order.mobile}}">
-                    <view class="weui-form-preview__label">联系用户</view>
-                    <view class="weui-form-preview__value"><i class="iconfont-dasan-16"></i>拨打</view>
-                </view>
-                <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">用户已等待</view>
-                    <view class="weui-form-preview__value"> <view class="statu sta1">{{order.waitTime}}</view></view>
-                </view>
-            </view>
-            <block wx:if="{{order.status == 0}}">
-              <view class="weui-form-preview__ft" catchtap="sendSms" data-mobile="{{order.mobile}}" data-index="{{index}}">
-                  <a class="weui-btn weui-btn_primary " href="javascript:" id="">通知Ta到店</a>
-              </view>
-            </block>
-            <block wx:else>
-              <view class="weui-form-preview__ft">
-                  <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="">已通知</a>
-              </view>
-            </block>
+      <block wx:if="{{orderList.length == 0}}">
+        <view style="display:flex; flex-direction:column;min-height:100%;justify-content:space-between;">
+          <text style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">暂无用户预约理发</text>
         </view>
-        </block>
+      </block>
+    <!--循环订单列表-->
+      <block wx:else>
+      <view class="container dingdan-wrap yuyue-wrap b-wrap">
+        <view class="wrap">
+        <block wx:for="{{orderList}}" wx:for-item="order">
+            <view class="weui-form-preview">
+                <view class="weui-form-preview__hd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">预约号</view>
+                        <view class="weui-form-preview__value">{{order.shortNumber}}</view>
+                    </view>
+                </view>
+                <view class="weui-form-preview__bd">
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">下单时间</view>
+                        <view class="weui-form-preview__value">{{order.dateString}}</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">预约理发师</view>
+                        <view class="weui-form-preview__value">{{order.detail[0].name}}</view>
+                    </view>
+                    <view class="weui-form-preview__item" bindtap="callCustomer" data-mobile="{{order.mobile}}">
+                        <view class="weui-form-preview__label">联系用户</view>
+                        <view class="weui-form-preview__value"><i class="iconfont-dasan-16"></i>拨打</view>
+                    </view>
+                    <view class="weui-form-preview__item">
+                        <view class="weui-form-preview__label">用户已等待</view>
+                        <view class="weui-form-preview__value"> <view class="statu sta1">{{order.waitTime}}</view></view>
+                    </view>
+                </view>
+                <block wx:if="{{order.status == 0}}">
+                  <view class="weui-form-preview__ft" catchtap="sendSms" data-mobile="{{order.mobile}}" data-index="{{index}}">
+                      <a class="weui-btn weui-btn_primary " href="javascript:" id="">通知Ta到店</a>
+                  </view>
+                </block>
+                <block wx:else>
+                  <view class="weui-form-preview__ft">
+                      <a class="weui-btn weui-btn_primary weui-btn_disabled" href="javascript:" id="">已通知</a>
+                  </view>
+                </block>
+            </view>
+          </block>
+        </view>
     </view>
-</view>
+</block>

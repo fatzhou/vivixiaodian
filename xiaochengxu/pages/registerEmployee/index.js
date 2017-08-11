@@ -127,13 +127,14 @@ Page({
         var result = JSON.parse(data);
         //do something
         console.log('upload done');
-        console.log(data);
+        console.log(result);
 
         if (result.code == 0) {
           that.setData({
             uploadedImageUrl: result.url
           })
 
+          console.log("发送注册请求")
           //成功的话继续调用商品注册
           wx.request({
             url: app.globalData.serverHost + '/api/shop/dealemployee',
@@ -164,8 +165,9 @@ Page({
                   + '&employeeName=' 
                   + that.data.employeeName 
                   + '&uploadedImageUrl='+ that.data.uploadedImageUrl
-                  + 'status=0'
-                  + 'desc=' + that.data.employeePhoneNumber
+                  + '&status=0'
+                  + '&desc=' + that.data.employeePhoneNumber
+                  + '&prodid=' + res.data.prodid
                 })
               } else {
                 wx.showToast({
@@ -173,6 +175,10 @@ Page({
                   image: '../../image/xx.png',
                 });
               }
+            },
+            fail: function (res) {
+              console.log('dealemployee fail!!')
+              console.log(res)
             }
           })
         } else {

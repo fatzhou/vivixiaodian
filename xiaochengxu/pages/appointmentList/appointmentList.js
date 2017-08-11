@@ -12,6 +12,7 @@ Page({
     shop: {},
     wares: {},
     isOnWork: false,
+    isAvailable: false,
     isShowItemInfo: false,
     showItem: {},
     showWareIndex: 0,
@@ -32,6 +33,15 @@ Page({
 
   appointmentRandomTap: function() {
     var that = this;
+
+    if (!this.data.isAvailable) {
+      wx.showToast({
+        title: "暂时无法预约理发师,请联系店家!",
+        image: '../../image/xx.png'
+      });
+      return
+    }
+
     var n = that.random(0, that.data.productList.length);
     that.orderBarberAction(that.data.productList[n]);   
   },
@@ -112,7 +122,7 @@ Page({
             success: function(d) {
               if(d.confirm) {
                 wx.navigateTo({
-                  url: '../appointmentServiceOrderList/index?shopid=' + app.globalData.currentShop.shopid
+                  url: '../appointmentServiceOrderList/index?shopid=' + app.globalData.currentShopID
                 });
               }
             }
@@ -243,7 +253,7 @@ Page({
       data: {
           openid: app.globalData.userOpenID,
           token: app.globalData.session_key,
-          shopid: app.globalData.currentShop.shopid
+          shopid: app.globalData.currentShopID
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function(res) {
@@ -260,7 +270,7 @@ Page({
       url: app.globalData.serverHost + '/api/shop/prodlist',
       data: {
         openid : app.globalData.userOpenID,
-        shopid : app.globalData.currentShop.shopid
+        shopid: app.globalData.currentShopID
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       success: function(res) {
@@ -272,15 +282,24 @@ Page({
         var ware;
         var product;
         var isOnWork = (new Date(Date.now()).getHours() >= 9 && new Date(Date.now()).getHours() <= 21)
+        var isAvailable = false
+        var avialableList = [];
 
         for(var i = 0; i < res.data.prodlist.length; i++) {
           product = res.data.prodlist[i];
+          if (product.status > 1) {
+            continue
+          }
           product.orderNum = 0;
           product.index = i;
           console.log(new Date(Date.now()).getHours())
           //0上班,1下班 (后台定义)
           product.status = isOnWork && product.status == 0 ? 0 : 1;
+          if (product.status == 0) {
+            isAvailable = true
+          }
           product.imageList = product.image.split("|");
+          avialableList.push(product)
           //添加到类别中
           for(var j = 0;j < app.globalData.currentWareList.length; j++) {
             ware = app.globalData.currentWareList[j];
@@ -292,8 +311,9 @@ Page({
         }
         that.setData({
           isOnWork: isOnWork,
+          isAvailable: isAvailable,
           wares: app.globalData.currentWareList,
-          productList: res.data.prodlist
+          productList: avialableList
         });
 
         console.log(that.data.productList)
@@ -316,7 +336,7 @@ Page({
         data: {
           openid: app.globalData.userOpenID,
           token: app.globalData.session_key,
-          shopid: app.globalData.currentShop.shopid
+          shopid: app.globalData.currentShopID
         },
         method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
         // header: {}, // 设置请求的 header
@@ -339,14 +359,14 @@ Page({
     var that = this;
     
     console.log("app.globalData.userOpenID:" + app.globalData.userOpenID);
-    console.log("app.globalData.currentShop.shopid:" + app.globalData.currentShop.shopid);
+    console.log("app.globalData.currentShopID:" + app.globalData.currentShopID);
 
     //获取商品分类
     wx.request({
       url: app.globalData.serverHost + '/api/shop/classquery',
       data: {
         openid : app.globalData.userOpenID,
-        shopid : app.globalData.currentShop.shopid
+        shopid: app.globalData.currentShopID
       },
       method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
       //header: {
@@ -362,7 +382,7 @@ Page({
         app.globalData.currentWareList = res.data.classlist;
 
         //查找不到分类时
-        if (app.globalData.currentWareList.length <= 0) {
+        if (!app.globalData.currentWareList || app.globalData.currentWareList.length <= 0) {
           app.globalData.currentWareList = new Array(1)
           //给个分类特殊标记
           app.globalData.currentWareList[0] = {}

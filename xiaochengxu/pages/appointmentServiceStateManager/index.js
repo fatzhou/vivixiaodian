@@ -14,7 +14,7 @@ Page({
     status: 0
   },
 
-  //点击结单按钮
+  //点击接单按钮
   getOrder: function () {
     wx.navigateTo({
       url: '../appointTobOrder/index?shopid=' + this.data.shopid
@@ -38,7 +38,7 @@ Page({
         shopid: info.shopid,
         employeeName: info.employeeName,
         uploadedImageUrl: info.uploadedImageUrl,
-        descr: info.descr,
+        desc: info.desc,
         prodid: info.prodid,
         status: info.status
       })
@@ -72,7 +72,7 @@ Page({
         token: app.globalData.session_key,
         shopid: that.data.shopid,
         name: that.data.employeeName,
-        desc: that.data.descr,
+        desc: that.data.desc,
         image: that.data.uploadedImageUrl,
         classid: 1,
         price: 0,
