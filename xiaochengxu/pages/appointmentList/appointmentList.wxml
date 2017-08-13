@@ -1,6 +1,6 @@
 <view class="container yuyue-wrap">
   <view class="wrap">
-    <view class="shop-wrap-bottomgap">
+    <view class="shop-wrap" style="padding-bottom: 50px;">
       <view class="shop-layer">
         <view class="weui-panel__bd">
           <!--item1-->

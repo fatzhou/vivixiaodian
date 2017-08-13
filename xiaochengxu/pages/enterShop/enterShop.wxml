@@ -1,0 +1,5 @@
+      <block wx:if="{{error != 0}}">
+        <view style="display:flex; flex-direction:column;min-height:100%;justify-content:space-between;">
+          <text style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%)">{{error}} : {{errorMsg}}</text>
+        </view>
+      </block>

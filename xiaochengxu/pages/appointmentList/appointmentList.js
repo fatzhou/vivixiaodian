@@ -432,7 +432,8 @@ Page({
     //     app.globalData.lastShopID != app.globalData.currentShopID ||
     //     !app.globalData.hasLoadAllData) {
 
-        that.attentShop();
+        //进入之前EnterPage已经做了这个动作了
+        // that.attentShop();
 
         app.globalData.hasLoadAllData = false;
 

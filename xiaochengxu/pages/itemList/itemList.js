@@ -256,28 +256,29 @@ Page({
       console.log(app.globalData.session_key)
       console.log(app.globalData.currentShopID)
       //同步关注店铺
-      wx.request({
-        url: app.globalData.serverHost + '/api/user/attent',
-        data: {
-          openid: app.globalData.userOpenID,
-          token: app.globalData.session_key,
-          shopid: app.globalData.currentShopID
-        },
-        method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
-        // header: {}, // 设置请求的 header
-        success: function (res) {
-          // success
-          console.log("attent 请求成功!")
-          console.log(res)
-        },
-        fail: function () {
-          // fail
-          console.log("attent 请求失败!")
-        },
-        complete: function () {
-          // complete
-        }
-      })
+      //在EnterShop已经关注了,记得记得入口一定都要经过EnterShop
+      // wx.request({
+      //   url: app.globalData.serverHost + '/api/user/attent',
+      //   data: {
+      //     openid: app.globalData.userOpenID,
+      //     token: app.globalData.session_key,
+      //     shopid: app.globalData.currentShopID
+      //   },
+      //   method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      //   // header: {}, // 设置请求的 header
+      //   success: function (res) {
+      //     // success
+      //     console.log("attent 请求成功!")
+      //     console.log(res)
+      //   },
+      //   fail: function () {
+      //     // fail
+      //     console.log("attent 请求失败!")
+      //   },
+      //   complete: function () {
+      //     // complete
+      //   }
+      // })
 
       app.globalData.hasLoadAllData = false;
       console.log("获取商品分类")
