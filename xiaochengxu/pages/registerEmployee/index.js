@@ -19,6 +19,10 @@ Page({
         shopid: info.shopid,
       })
 
+      if (info.shopid) {
+        this.attentShop(info.shopid)
+      }
+
       if (info.vericode) {
         this.setData({
           vericode: info.vericode
@@ -201,6 +205,32 @@ Page({
     // wx.redirectTo({
     //   url: '../home/home'
     // })
+  },
+
+  attentShop(shopid) {
+    //同步关注店铺
+    wx.request({
+      url: app.globalData.serverHost + '/api/user/attent',
+      data: {
+        openid: app.globalData.userOpenID,
+        token: app.globalData.session_key,
+        shopid: shopid
+      },
+      method: 'POST', // OPTIONS, GET, HEAD, POST, PUT, DELETE, TRACE, CONNECT
+      // header: {}, // 设置请求的 header
+      success: function (res) {
+        // success
+        console.log("attent 请求成功!")
+        console.log(res)
+      },
+      fail: function () {
+        // fail
+        console.log("attent 请求失败!")
+      },
+      complete: function () {
+        // complete
+      }
+    });
   },
 
   registerEmployee: function() {
